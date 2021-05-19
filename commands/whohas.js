@@ -1,7 +1,6 @@
 const config = require("../config")
 const classData = require("../data/classData.json")
 const skillsData = require("../data/skillData.json")
-const createEmbedBrowser = require("../utils/createEmbedBrowser")
 const { getSkillIcon } = require("../utils/icons")
 const { getString } = require("../utils/lang")
 const makeEmbed = require("../utils/makeEmbed")
