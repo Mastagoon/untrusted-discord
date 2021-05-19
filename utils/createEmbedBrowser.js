@@ -12,10 +12,10 @@ module.exports = async(data, message, userId, time = 120000) => {
     }
     let i = 0
     for(embed of embeds) {
-        embeds[i] = new Discord.MessageEmbed(embed).setFooter(`Page ${i+1}/${pages} | Use the arrow emojis below to browse through the pages.`)
+        embeds[i] = new Discord.MessageEmbed(embed).setFooter(`Page ${i+1}/${pages} | Use the arrow emojis below to browse through the pages.`, "https://cdn.discordapp.com/attachments/844031096752570398/844330289622286356/logo_untrusted.png")
         i++
     }
-    const listEmbed = new Discord.MessageEmbed(list).setFooter(`Index page | Please enter a page number.`)
+    const listEmbed = new Discord.MessageEmbed(list).setFooter(`Index page | Please enter a page number.`, "https://cdn.discordapp.com/attachments/844031096752570398/844330289622286356/logo_untrusted.png")
     message.edit("", embeds[0])
     let index = 0
     for(emoji of emojis) await message.react(emoji)

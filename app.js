@@ -9,6 +9,7 @@ const { getString } = require("./utils/lang")
 
 
 bot.commands = new Discord.Collection()
+const commandAliases = []
 
 const commandFiles = fs.readdirSync("./commands").filter(f => f.endsWith(".js"))
 
