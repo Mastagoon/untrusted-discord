@@ -1,8 +1,8 @@
 const config = require("../config")
-const classData = require("../data/classData")
-const skillsData = require("../data/skillsData")
+const classData = require("../data/classData.json")
+const skillsData = require("../data/skillData.json")
 const createEmbedBrowser = require("../utils/createEmbedBrowser")
-const { getSkillIcon, getClassIcon } = require("../utils/icons")
+const { getSkillIcon } = require("../utils/icons")
 const { getString } = require("../utils/lang")
 const makeEmbed = require("../utils/makeEmbed")
 
@@ -13,7 +13,7 @@ module.exports = {
     aliases: 'sk,skillinfo,si',
     execute: async (message, args) => {
         if(!args[0]) return message.reply("Usage `"+config.prefix+"skill <skill name>`")
-        const skillInfo = skillsData.find(sk => sk.aliases.split(",").includes(args.join(" ").toLowerCase()))
+        const skillInfo = skillsData.find(sk => sk.name.toLowerCase().includes(args.join(" ")))
         if(!skillInfo) return message.reply(getString(message.member, "skillErrNoSkill"))
         // skill found
         const embeds = []
@@ -21,16 +21,24 @@ module.exports = {
         const skillInfoFields = [
             { name: "Skill Description", value: skillInfo.description },
             { name: "Type", value: `${skillInfo.type} Skill`, inline: true }, { name: "Targets", value: skillInfo.targets, inline: true },
-            { name: "Cooldown in Days", value: skillInfo.cooldown || 0, inline: true }, { name: "Maximum Uses", value: skillInfo.uses || "Unlimited", inline: true }
+            { name: "Cooldown in Days", value: skillInfo.Cooldown_in_days || 0, inline: true }, { name: "Maximum Uses", value: Number(skillInfo.Maximum_uses) || "Unlimited", inline: true }
         ]
-        skillInfo.visits && skillInfoFields.push({ name: "Counts as Visit", value: "Yes" })
-        skillInfo.occupies && skillInfoFields.push({ name: "Occupies Target", value: "Yes" })
-        skillInfo.rng && skillInfoFields.push({ name: "RNG Based Success Rate", value: "Yes" })
+        skillInfo.Visits_target == "Yes" && skillInfoFields.push({ name: "Counts as Visit", value: "Yes" })
+        skillInfo.Occupies_target == "Yes" && skillInfoFields.push({ name: "Occupies Target", value: "Yes" })
+        skillInfo.RNG_based_success == "Yes" && skillInfoFields.push({ name: "RNG Based Success Rate", value: "Yes" })
         embeds.push(await makeEmbed('#FF0000', 'Skill Data', { name: skillInfo.name, iconURL: message.author.avatarURL() }, skillInfoFields, getSkillIcon(skillInfo.id)))
         // skill classes embed
         const skillClassesFields = []
-        skillInfo.classes.forEach((cid, index) => skillClassesFields.push({ name: `${index+1}. ${classData.find(cd => cd.id === cid).ingame_name}`, value: '\u200B' }))
-        embeds.push(await makeEmbed('#FF0000', 'Classes With This Skill', { name: skillInfo.name, iconURL: message.author.avatarURL() },skillClassesFields ))
+        let index = 1
+        classData.map(cl => {
+            const skillList = cl.day_skills.concat(cl.night_skills).concat(cl.passive_skills)
+            if(skillList.includes(skillInfo.name)) {
+                skillClassesFields.push({ name: `${index}. ${cl.ingame_name}`, value: '\u200B' })
+                index++
+            }
+        })
+        // skillInfo.classes.forEach((cid, index) => skillClassesFields.push({ name: `${index+1}. ${classData.find(cd => Number(cd.id) === Number(cid)).ingame_name}`, value: '\u200B' }))
+        embeds.push(await makeEmbed('#FF0000', 'Classes That Can Use This Skill', { name: skillInfo.name, iconURL: message.author.avatarURL() },skillClassesFields, getSkillIcon(skillInfo.id) ))
         const list = await makeEmbed('#FF0000', 'Index',  { name: skillInfo.name, iconURL: message.author.avatarURL() }, null, getSkillIcon(skillInfo.id), null, '1. Skill Data\n2. Skill Classess')
 
         message.reply("Searching...").then(mes => {

@@ -1,6 +1,6 @@
 const config = require("../config")
-const classData = require("../data/classData")
-const skillData = require("../data/skillsData")
+const classData = require("../data/classData.json")
+const skillData = require("../data/skillData.json")
 const { getString } = require("../utils/lang")
 const makeEmbed = require("../utils/makeEmbed")
 const getClassColor = require("../utils/getClassColor")
@@ -21,7 +21,7 @@ module.exports = {
         const embeds = []
         // class data embed
         embeds.push(await makeEmbed(getClassColor(classInfo.faction), 'Class Data', { name: classInfo.ingame_name, iconURL: message.author.avatarURL() }, [
-            { name: "Faction", value: classInfo.faction }, { name: "Unique", value: classInfo.unique ? 'Yes' : 'No', inlien: true },
+            { name: "Faction", value: classInfo.faction, inline: true},{ name: "Type", value: classInfo.type, inline: true }, { name: "Unique", value: classInfo.unique ? 'Yes' : 'No', inline: true },
             { name: "Guarenteed Spawn", value: classInfo.guarenteed ? 'Yes' : 'No' , inline: true }, { name: "Node Capture Chance", value: classInfo.capture_chance || 'Cannot Hack' },
             { name: "Win Condition", value: classInfo.wincon }
         ], getClassIcon(classInfo.id), null, classInfo.description))
