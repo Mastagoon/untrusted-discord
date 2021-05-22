@@ -7,7 +7,7 @@ const makeEmbed = require("../utils/makeEmbed")
 
 module.exports = {
     name: "whohas",
-    dsecription: "Use this command to learn which classes has a certain skill",
+    description: "Use this command to learn which classes has a certain skill",
     usage: "`"+config.prefix+"whohas <skill name>`",
     aliases: 'wh,who',
     execute: async (message, args) => {
