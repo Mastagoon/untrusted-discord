@@ -26,7 +26,7 @@ module.exports = {
                 index++
             }
         })
-        const embed = await makeEmbed('#FF0000', `Classes That Can Use ${skillInfo.name}`, { name: skillInfo.name, iconURL: message.author.avatarURL() },skillClassesFields, getSkillIcon(skillInfo.id))
+        const embed = await makeEmbed('#00F7F7', `Classes That Can Use ${skillInfo.name}`, { name: skillInfo.name, iconURL: message.author.avatarURL() },skillClassesFields, getSkillIcon(skillInfo.id))
         embed.setFooter('Untrusted Bot', "https://cdn.discordapp.com/attachments/844031096752570398/844330289622286356/logo_untrusted.png")
         return message.reply(embed)
     }

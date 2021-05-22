@@ -27,7 +27,7 @@ module.exports = {
         skillInfo.Visits_target == "Yes" && skillInfoFields.push({ name: "Counts as Visit", value: "Yes" })
         skillInfo.Occupies_target == "Yes" && skillInfoFields.push({ name: "Occupies Target", value: "Yes" })
         skillInfo.RNG_based_success == "Yes" && skillInfoFields.push({ name: "RNG Based Success Rate", value: "Yes" })
-        embeds.push(await makeEmbed('#FF0000', 'Skill Data', { name: skillInfo.name, iconURL: message.author.avatarURL() }, skillInfoFields, getSkillIcon(skillInfo.id)))
+        embeds.push(await makeEmbed('#00F7F7', 'Skill Data', { name: skillInfo.name, iconURL: message.author.avatarURL() }, skillInfoFields, getSkillIcon(skillInfo.id)))
         // skill classes embed
         const skillClassesFields = []
         let index = 1
@@ -39,8 +39,8 @@ module.exports = {
             }
         })
         // skillInfo.classes.forEach((cid, index) => skillClassesFields.push({ name: `${index+1}. ${classData.find(cd => Number(cd.id) === Number(cid)).ingame_name}`, value: '\u200B' }))
-        embeds.push(await makeEmbed('#FF0000', 'Classes That Can Use This Skill', { name: skillInfo.name, iconURL: message.author.avatarURL() },skillClassesFields, getSkillIcon(skillInfo.id) ))
-        const list = await makeEmbed('#FF0000', 'Index',  { name: skillInfo.name, iconURL: message.author.avatarURL() }, null, getSkillIcon(skillInfo.id), null, '1. Skill Data\n2. Skill Classess')
+        embeds.push(await makeEmbed('#00F7F7', 'Classes That Can Use This Skill', { name: skillInfo.name, iconURL: message.author.avatarURL() },skillClassesFields, getSkillIcon(skillInfo.id) ))
+        const list = await makeEmbed('#00F7F7', 'Index',  { name: skillInfo.name, iconURL: message.author.avatarURL() }, null, getSkillIcon(skillInfo.id), null, '1. Skill Data\n2. Skill Classess')
 
         message.reply("Searching...").then(mes => {
             return createEmbedBrowser({ embeds, pages: 2, list }, mes, message.author.id)
