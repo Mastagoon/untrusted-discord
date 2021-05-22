@@ -13,7 +13,7 @@ module.exports = {
     aliases: 'sk,skillinfo,si',
     execute: async (message, args) => {
         if(!args[0]) return message.reply("Usage `"+config.prefix+"skill <skill name>`")
-        const skillInfo = skillsData.find(sk => sk.name.toLowerCase().includes(args.join(" ")))
+        const skillInfo = skillsData.find(sk => sk.name.toLowerCase().includes(args.join(" ").toLowerCase()))
         if(!skillInfo) return message.reply(getString(message.member, "skillErrNoSkill"))
         // skill found
         const embeds = []
