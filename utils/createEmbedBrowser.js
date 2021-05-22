@@ -55,6 +55,6 @@ module.exports = async(data, message, userId, time = 120000) => {
                 })
                 break
         }
-        r.users.remove(u.id)
+        // r.users.remove(u.id)
     })
 }
