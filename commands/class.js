@@ -11,10 +11,11 @@ module.exports = {
     name: "class",
     description: "Use this command to get information about a certain class.",
     usage: "`"+config.prefix+"class <class name>`",
-    aliases: "classinfo,ci",
+    aliases: "classinfo,ci,cl",
     execute: async (message, args) => {
         if(!args[0]) return message.reply("Usage `"+config.prefix+"class <class name>`")
-        const classInfo = classData.find(c => c.name.split(",").includes(args.join(" ").toLowerCase()))
+        let classInfo = classData.find(c => c.name.split(",").includes(args.join(" ").toLowerCase())) ||
+        classData.find(c => c.name.split(",")[0].startsWith(args.join(" ").toLowerCase()))
         if(!classInfo) return message.reply(getString(message.member, "classErrNoClass"))
         // class found
         // format class data
