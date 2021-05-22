@@ -12,7 +12,8 @@ module.exports = {
     aliases: 'wh,who',
     execute: async (message, args) => {
         if(!args[0]) return message.reply("Usage `"+config.prefix+"whohas <skill name>`")
-        const skillInfo = skillsData.find(sk => sk.name.toLowerCase().includes(args.join(" ")))
+        const skillInfo = skillsData.find(sk => sk.name.toLowerCase().includes(args.join(" "))) || 
+        skillsData.find(sk => sk.name.split(" ").reduce((res, word) => res += word.slice(0,1), '').toLowerCase() == args[0].toLowerCase())
         if(!skillInfo) return message.reply(getString(message.member, "skillErrNoSkill"))
         // skill found
         // find classes with this skill
@@ -25,7 +26,7 @@ module.exports = {
                 index++
             }
         })
-        const embed = await makeEmbed('#FF0000', `Classes That Can Use ${skillInfo.name}`, { name: skillInfo.name, iconURL: message.author.avatarURL() },skillClassesFields, getSkillIcon(skillInfo.id))
+        const embed = await makeEmbed('#00F7F7', `Classes That Can Use ${skillInfo.name}`, { name: skillInfo.name, iconURL: message.author.avatarURL() },skillClassesFields, getSkillIcon(skillInfo.id))
         embed.setFooter('Untrusted Bot', "https://cdn.discordapp.com/attachments/844031096752570398/844330289622286356/logo_untrusted.png")
         return message.reply(embed)
     }

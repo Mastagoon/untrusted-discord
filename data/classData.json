@@ -141,7 +141,7 @@
     {
         "id":"12",
         "ingame_name":"Bounty Hunter",
-        "name":"bounty hunter,bounty,hunter",
+        "name":"bounty hunter,bounty,hunter,bohu",
         "unique": true,
         "type":"Field Operations",
         "day_skills": ["Unskilled Attack", "Spill the Beans", "Plant Fake Information"],
@@ -213,7 +213,8 @@
         "wincon": "Do not let NETSEC win. Survive and do not get arrested.",
         "name":"rival hacker,rh",
         "description":"NETSEC, our rival crew, is oblivious that for once, we were ahead of them and infiltrated the target already. A great chance to take them down from the inside this time...",
-        "faction":"NEUTRAL"
+        "faction":"NEUTRAL",
+        "capture_chance":"Moderate"
     },
     {
         "id":"23",
