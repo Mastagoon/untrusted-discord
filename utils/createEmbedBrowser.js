@@ -21,7 +21,7 @@ module.exports = async(data, message, userId, time = 120000) => {
     for(emoji of emojis) await message.react(emoji)
     const filter = (r, u) => emojis.includes(r.emoji.name) && u.id === userId
     const reactionCollector = message.createReactionCollector(filter, { time })
-    reactionCollector.on(`end`,() => message.reactions.removeAll())
+    // reactionCollector.on(`end`,() => message.reactions.removeAll())
     reactionCollector.on(`collect`, (r,u) => {
         switch(emojis.indexOf(r.emoji.name)) {
             case 0: //previous
