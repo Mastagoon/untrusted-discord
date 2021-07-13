@@ -4,7 +4,7 @@ module.exports = {
     // The display name of your bot (can also be set through Discord developer portal.)
     bot_name: 'Untrusted Bot',
     // Bot activity. Displayed as playing ... in Discord.
-    activity: '',
+    activity: 'Untrusted',
     // The prefix used before commands
     prefix: '!',
     // Language setting
