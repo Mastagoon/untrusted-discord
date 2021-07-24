@@ -1,310 +1,538 @@
 [
-    {
-        "id":"1",
-        "ingame_name":"Operation Leader",
-        "name":"operation leader,ol",
-        "type":"Special",
-        "unique":true,
-        "guarenteed":"While you have a few tricks under your sleeve to hack computers, you are much more useful to the operation thanks to your deep knowledge in network protocols and infrastructure. While you can be on the offensive team, your skills are most valuable to investigate your own comrades: finding out who is a liar early on can be the difference between prison and freedom.",
-        "description":"You are the NETSEC operation leader - your role is to coordinate attacks and to sniff out potential threats to your operation. Although you have hacking skills, you have to focus on other matters for the success of the full operation. Don’t get caught.",
-        "faction":"NETSEC",
-        "wincon":"Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
-        "day_skills":[
-            "Hack Target",
-            "0-Day Exploit",
-            "Grant Root Access"
-        ],
-        "night_skills":[
-            "Emergency Extraction",
-            "Move Hideout"
-        ],
-        "passive_skills":[
-            "Not a Snitch",
-            "Covert Broadcast"
-        ],
-        "capture_chance":"High"
-    },
-    {
-        "id":"2",
-        "ingame_name":"CCTV Specialist",
-        "type": "Field Operations",
-        "name":"cctv specialist,cctv,ctv",
-        "description":"You have been hired by the Operation Leader to ensure no law enforcement interferes with the operation. You are one of the few that knows the physical location of everyone and you have to keep tabs on what’s happening by planting and monitoring hidden cameras. Everyone may be working together with law enforcement, hence, the need for some old school surveillance duty.",
-        "faction":"NETSEC",
-        "day_skills": ["Create Hideout", "Bait Law Enforcement", "Desperate Measures"],
-        "night_skills": ["Move Hideout", "Install CCTV Surveillance"],
-        "passive_skills": ["Perform CCTV Surveillance"],
-        "wincon":"Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is..."
-    },
-    {
-        "id":"8",
-        "ingame_name":"Enforcer",
-        "name":"enforcer,enf",
-        "description":"Sometimes, destiny needs a literal push. You know nothing about hacking, but your muscles are going to be a very strong asset for NETSEC. You have no problem in being arrested -again- if this means keeping your partners safe a little longer.",
-        "faction":"NETSEC",
-        "day_skills": ["Desperate Measures"],
-        "night_skills": ["Interrogate", "Escort", "Disorganized Murder"],
-        "passive_skills": ["Diversion"],
-        "type": "Field Operations",
-        "wincon":"Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is..."
-    },
-    {
-        "id":"6",
-        "ingame_name":"Inside Man",
-        "name":"inside man,im,inside,man",
-        "description":"You don’t have a high-clearance access at the target organization, but hey, that’s better than being unauthorized, right? You’re just a random, average employee, willing to get your hands dirty for an extra paycheck. You are not entirely sure why the NETSEC group is targeting your employer, but simply don’t care. You’re just not paid enough.",
-        "faction":"NETSEC",
-        "day_skills": ["Plant Keylogger", "Insider Knowledge", "Desperate Measures"],
-        "night_skills": ["Follow", "Retrieve Keylogger", "Dumpster Dive"],
-        "passive_skills": ["Target Knowledge"],
-        "type":"Field Operations",
-        "wincon":"Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is..."
-    },
-    {
-        "id":"9",
-        "ingame_name":"Analyst",
-        "name":"analyst",
-        "description":"You love math and statistics. You made that your career, before joining NETSEC. While with the right circumstances you are still able to hack your way in a network, your partners count on your analytics skills.",
-        "faction":"NETSEC",
-        "day_skills": ["Hack Target", "Log Analysis", "Download Intel"],
-        "night_skills": ["Midnight Meeting", "Ask The Right Question"],
-        "passive_skills": [],
-        "type": "Investigative",
-        "capture_chance": "Low",
-        "wincon":"Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is..."
-    },
-    {
-        "id":"3",
-        "ingame_name":"Network Specialist",
-        "name":"network specialist,ns,specialist",
-        "description":"While you have a few tricks under your sleeve to hack computers, you are much more useful to the operation thanks to your deep knowledge in network protocols and infrastructure. While you can be on the offensive team, your skills are most valuable to investigate your own comrades: finding out who is a liar early on can be the difference between prison and freedom.",
-        "faction":"NETSEC",
-        "type":"Investigative",
-        "day_skills": ["Hack Target", "Wire Shark", "Probe Node"],
-        "night_skills": ["Cover Your Tracks", "Review Connection Logs"],
-        "passive_skills": [],
-        "capture_chance":"Moderate",
-        "wincon":"Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is..."
-    },
-    {
-        "id":"5",
-        "ingame_name":"Social Engineer",
-        "name":"social engineer,se",
-        "description":"You know your way around computers and can hack, if necessary. However, your social skills are your real strength : lie and cheat your way to get the NETSEC group ahead of the competition",
-        "faction":"NETSEC",
-        "type":"Investigative",
-        "capture_chance":"Low",
-        "day_skills": ["Hack Target", "Impersonate"],
-        "night_skills": ["Doxx and stalk", "Misdirection", "Throw under the bus"],
-        "passive_skills": [],
-        "wincon":"Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is..."
-    },
-    {
-        "id":"4",
-        "ingame_name":"Blackhat",
-        "name":"blackhat,bh",
-        "description":"You’re not just good in hacking into target machines - you are also very good in disrupting other people plans. While your main task in gaining control of target machines, the Operation Leader also trusts you will use your skills to slow down law enforcement progress in their investigation.",
-        "faction":"NETSEC",
-        "type": "Offensive",
-        "capture_chance": "Very High",
-        "day_skills": ["Hack Target", "Exploit vulnerability", "Denial of Service"],
-        "night_skills": ["Midnight Meeting"],
-        "passive_skills": ["Not a Snitch"],
-        "wincon":"Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is..."
-    },
-    {
-        "id":"20",
-        "ingame_name":"Improvised Hacker",
-        "name":"improvised hacker,ih,hacker",
-        "description":"You never learnt anything about this stuff and were hired for different reasons. You will blindly follow instructions, and hope for the best.",
-        "faction":"NETSEC",
-        "type":"Offensive",
-        "capture_chance": "Very Low",
-        "day_skills": ["Hack Target", "Download Intel"],
-        "night_skills": ["Move Hideout", "Dumpster Dive"],
-        "passive_skills": [],
-        "wincon":"Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is..."
-    },
-    {
-        "id":"7",
-        "ingame_name":"Spearphisher",
-        "name":"spearphisher,sp,sf",
-        "description":"While you’re not as good as the blackhat, you know your way into other people’s machines. You’re specialized in crafting traps to aid your lack of advanced skill, either via software or social manipulation, in order to gain and exploit trust from your target.",
-        "faction":"NETSEC",
-        "type": "Offensive",
-        "capture_chance":"Very Low",
-        "day_skills": ["Hack Target", "Spearphishing Execution", "Download Intel"],
-        "night_skills": ["Misdirection", "Spearphishing Preparation"],
-        "passive_skills": [],
-        "wincon":"Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is..."
-    },
-    {
-        "id":"12",
-        "ingame_name":"Bounty Hunter",
-        "name":"bounty hunter,bounty,hunter,bohu",
-        "unique": true,
-        "type":"Field Operations",
-        "day_skills": ["Unskilled Attack", "Spill the Beans", "Plant Fake Information"],
-        "night_skills": ["Doxx and stalk", "Frame", "Citizen's Arrest"],
-        "passive_skills": ["No Dirt on Me", "Not a Snitch"],
-        "wincon": "Contribute to the arrest of at least 3 NETSEC targets,either directly or by denouncing them to AGENTs with the 'spill the beans' skill. Don't die in the process.",
-        "description":"You don’t CARE about the hack in progress. You just want some sweet, sweet money. It cost you a significant amount of cash buying your way into the crew, but now, it’s time for a big fat paycheck.",
-        "faction":"NEUTRAL"
-    },
-    {
-        "id":"10",
-        "ingame_name":"Journalist",
-        "name":"journalist,journ,journy",
-        "type":"Investigative",
-        "wincon": "Survive until the end writing at least three articles in the process. Whoever wins is not relevant to your objective.",
-        "day_skills": ["Unskilled Attack", "Impartial Sabotage"],
-        "night_skills": ["Get Scoop", "Write Article", "Expose Operation Leader"],
-        "passive_skills": ["No Dirt on Me", "Not a Snitch"],
-        "description":"You managed to buy yourself into the NETSEC GROUP via certain questionable….connections. You’re here to write the next big story, on how one of the greatest hack of all time was coordinated (if successfull) or dismantled by law enforcement (if unsuccessful). Either way, things are looking up for you - if you don’t get yourself killed, that is.",
-        "faction":"NEUTRAL"
-    },
-    {
-        "id":"11",
-        "ingame_name":"Script Kiddie",
-        "name":"script kiddie,sk",
-        "type":"Offensive",
-        "day_skills": ["Create Hideout", "Denial of Service", "Script Kiddie Attack"],
-        "night_skills": ["Move Hideout"],
-        "passive_skills": ["Unsecured Device", "Not a Snitch"],
-        "wincon": "Welp, you are now playing with the big boys and want to go home, but you can't. Survive until the end, do not get arrested.",
-        "description":"You’re a failed computer engineer, barely graduated (and only because you cheated all your way to graduation). You’ve always wanted to become a ‘master haxx0r’ but really are clueless about IT in general. You’re not sure how you manged to get into the crew - possibly someone is going to use you a scapegoat?",
-        "faction":"NEUTRAL"
-    },
-    {
-        "id":"14",
-        "ingame_name":"Resentful Criminal",
-        "name":"resentful criminal,rc,criminal",
-        "type":"Special",
-        "unique": true,
-        "day_skills": ["Unskilled Attack", "Impersonate"],
-        "night_skills": ["Looking for an old friend", "Interrogate", "Disorganized Murder"],
-        "passive_skills": ["Not a Snitch"],
-        "wincon": "Get your revenge: have the Agent Leader killed (even if all in), and get rid of the Operation Leader. Survive this mess.",
-        "description":"A long time ago, NETSEC screwed you over. Not to mention, what AGENTs did to you. You will have your revenge by making all of them fail.",
-        "faction":"NEUTRAL"
-    },
-    {
-        "id":"13",
-        "ingame_name":"Sociopath",
-        "unique": true,
-        "type": "Special",
-        "wincon": "Become Operation leader, then get arrested. That's all you want and need: becoming the most famous hacker in the news.",
-        "day_skills": ["Hack Target", "Crack Credentials"],
-        "night_skills": ["Follow", "Frame", "Murder"],
-        "passive_skills": ["Unstable Mind", "Not a Snitch"],
-        "name":"sociopath,socio",
-        "description":"You used to be a very good hacker back in the day. However your mental health has gone a long way ago. You’re obsessed with becoming famous as one of the most dangerous hackers to ever walk the earth.",
-        "faction":"NEUTRAL",
-        "capture_chance":"Very Low"
-    },
-    {
-        "id":"22",
-        "ingame_name":"Rival Hacker",
-        "unique":true,
-        "type": "Offensive",
-        "day_skills": ["Hack Target", "Harden Node", "Jam Network"],
-        "night_skills": ["Move Hideout", "Wiretap", "Wipe"],
-        "passive_skills": ["Blackmailed Informer", "Prepared for Anything"],
-        "wincon": "Do not let NETSEC win. Survive and do not get arrested.",
-        "name":"rival hacker,rh",
-        "description":"NETSEC, our rival crew, is oblivious that for once, we were ahead of them and infiltrated the target already. A great chance to take them down from the inside this time...",
-        "faction":"NEUTRAL",
-        "capture_chance":"Moderate"
-    },
-    {
-        "id":"23",
-        "unique": true,
-        "wincon": "Steal and Upload anywhere the requested intel and do not let AGENTs win: survive and do not get arrested.",
-        "type": "Field Operations",
-        "day_skills": ["Unskilled Attack", "Upload Intel", "Get Bribe"],
-        "night_skills": ["Follow", "Throw under the bus", "Steal Intel"],
-        "passive_skills": ["Not a Snitch", "Agent Scum"],
-        "ingame_name":"Corrupt Detective",
-        "name":"corrupt detective,cd,detective",
-        "description":"You've been using your position in law enforcement to pay for an unhealthy lifestyle and various people have taken notice, including the Operation Leader. This will be your last job: cash out and get out, while there is still time.",
-        "faction":"NEUTRAL"
-    },
-    {
-        "id":"15",
-        "ingame_name":"Agent Leader",
-        "name":"agent leader,al",
-        "unique": true,
-        "guarenteed": true,
-        "type":"Special",
-        "day_skills": ["All In", "Rollback", "Computer forensics background"],
-        "night_skills": ["Midnight Meeting", "Strike Deal", "Intelligence Informer"],
-        "passive_skills": ["Cover Checks Out", "Topology Knowledge"],
-        "capture_chance": "Moderate",
-        "description":" You have been tasked in closing down the NETSEC crew forever - a dangerous task… that you have to do. You can’t resort to violence, but you have the government - and its resources - on your side..",
-        "faction":"AGENT",
-        "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative."
-
-    },
-    {
-        "id":"16",
-        "ingame_name":"Field Agent",
-        "unique": true,
-        "guarenteed":true,
-        "type": "Field Operations",
-        "day_skills": ["Alter Logs", "Unskilled Attack", "ISP Isolation"],
-        "night_skills": ["Sting", "Arrest", "Planned Raid"],
-        "passive_skills": ["Topology Knowledge"],
-        "name":"field agent,fa",
-        "description":"You are tasked with the actual arrest of NETSEC operatives, working closely with the Agent Leader to bring people to justice.",
-        "faction":"AGENT",
-        "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative."
-    },
-    {
-        "id":"17",
-        "type":"Field Operations",
-        "day_skills": ["Plant Fake Information", "Jam Network"],
-        "night_skills": ["Search for Keyloggers", "Wiretap", "Add Route"],
-        "passive_skills": ["Topology Knowledge"],
-        "ingame_name":"Converted NETSEC/Field-OP",
-        "name":"converted netsec/field-op,converted field,converted op,converted field operation,converted 1,converted1",
-        "description":"You used to be part of the NETSEC group, until the law knocked on your door. You accepted a deal and now, to avoid prison, you must take down the very same organization you believed in firmly. You will aid the investigation with your field operation skills.",
-        "faction":"AGENT",
-        "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative."
-    },
-    {
-        "id":"18",
-        "ingame_name":"Converted NETSEC/Investigative",
-        "name":"converted netsec/investigative,converted invest,converted investigative,converted inv,converted 2,converted2",
-        "type":"Investigative",
-        "day_skills": ["Alter Logs", "Impersonate"],
-        "night_skills": ["Follow", "Setup"],
-        "passive_skills": ["Topology Knowledge"],
-        "description":"You used to be part of the NETSEC group, until the law knocked on your door. You accepted a deal and now, to avoid prison, you must take down the very same organization you believed in firmly. You will aid the investigation with your network security investigative skills, from within the NETSEC itself.",
-        "faction":"AGENT",
-        "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative."
-    },
-    {
-        "id":"19",
-        "ingame_name":"Converted NETSEC/offensive",
-        "name":"converted netsec/offensive,coverted offensive,converted off,converted3,converted 3",
-        "day_skills": ["Rollback", "Harden Node"],
-        "night_skills": ["Midnight Meeting", "Wipe"],
-        "passive_skills": ["Topology Knowledge"],
-        "type":"Offensive",
-        "description":"You used to be part of the NETSEC group, until the law knocked on your door. You accepted a deal and now, to avoid prison, you must take down the very same organization you believed in firmly. You will aid the investigation with your network security offensive skills, from within the NETSEC itself.",
-        "faction":"AGENT",
-        "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative."
-    },
-    {
-        "id":"21",
-        "ingame_name":"Runaway Snitch",
-        "name":"runaway snitch,rs,snitch",
-        "type":"Special",
-        "day_skills": ["Unskilled Attack"],
-        "night_skills": ["Disorganized Murder", "Snitch To Cops"],
-        "passive_skills": ["Topology Knowledge"],
-        "description":"You are panicking, not thinking straight, and rightly so - NETSEC is out to get you and no AGENT can help you out of this mess now. Stop the hack with any means necessary, run away, and start a new life in the shadows.",
-        "faction":"AGENT",
-        "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative."
-    }
+ {
+  "id": "1",
+  "ingame_name": "Operation Leader",
+  "name": "operation leader,ol",
+  "type": "Special",
+  "unique": true,
+  "guaranteed": false,
+  "description": "You are the NETSEC operation leader - your role is to coordinate attacks and to sniff out potential threats to your operation. Although you have hacking skills, you have to focus on other matters for the success of the full operation. Don’t get caught.",
+  "faction": "NETSEC",
+  "wincon": "Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
+  "day_skills": [
+   "Hack Target",
+   "0-Day Exploit",
+   "Grant root Access"
+  ],
+  "night_skills": [
+   "Emergency Extraction",
+   "Move Hideout"
+  ],
+  "passive_skills": [
+   "Not a Snitch",
+   "Covert Broadcast"
+  ],
+  "capture_chance": "High"
+ },
+ {
+  "id": "2",
+  "ingame_name": "CCTV Specialist",
+  "name": "cctv specialist,cctv,ctv",
+  "type": "Field Operations",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You have been hired by the Operation Leader to ensure no law enforcement interferes with the operation. You are one of the few that knows the physical location of everyone and you have to keep tabs on what’s happening by planting and monitoring hidden cameras. Everyone may be working together with law enforcement, hence, the need for some old school surveillance duty.",
+  "faction": "NETSEC",
+  "wincon": "Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
+  "day_skills": [
+   "Create Hideout",
+   "Bait Law Enforcement",
+   "Desperate Measures"
+  ],
+  "night_skills": [
+   "Move Hideout",
+   "Install CCTV Surveillance"
+  ],
+  "passive_skills": [
+   "Perform CCTV Surveillance"
+  ]
+ },
+ {
+  "id": "8",
+  "ingame_name": "Enforcer",
+  "name": "enforcer,enf",
+  "type": "Field Operations",
+  "unique": false,
+  "guaranteed": false,
+  "description": "Sometimes, destiny needs a literal push. You know nothing about hacking, but your muscles are going to be a very strong asset for NETSEC. You have no problem in being arrested -again- if this means keeping your partners safe a little longer.",
+  "faction": "NETSEC",
+  "wincon": "Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
+  "day_skills": [
+   "Desperate Measures"
+  ],
+  "night_skills": [
+   "Interrogate",
+   "Escort",
+   "Disorganized Murder"
+  ],
+  "passive_skills": [
+   "Diversion"
+  ]
+ },
+ {
+  "id": "6",
+  "ingame_name": "Inside Man",
+  "name": "inside man,im,inside,man",
+  "type": "Field Operations",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You don’t have a high-clearance access at the target organization, but hey, that’s better than being unauthorized, right? You’re just a random, average employee, willing to get your hands dirty for an extra paycheck. You are not entirely sure why the NETSEC group is targeting your employer, but simply don’t care. You’re just not paid enough.",
+  "faction": "NETSEC",
+  "wincon": "Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
+  "day_skills": [
+   "Plant Keylogger",
+   "Insider Knowledge",
+   "Desperate Measures"
+  ],
+  "night_skills": [
+   "Follow",
+   "Retrieve Keylogger",
+   "Dumpster Dive"
+  ],
+  "passive_skills": [
+   "Target Knowledge"
+  ]
+ },
+ {
+  "id": "9",
+  "ingame_name": "Analyst",
+  "name": "analyst",
+  "type": "Investigative",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You love math and statistics. You made that your career, before joining NETSEC. While with the right circumstances you are still able to hack your way in a network, your partners count on your analytics skills.",
+  "faction": "NETSEC",
+  "wincon": "Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
+  "day_skills": [
+   "Hack Target",
+   "Log Analysis",
+   "Download Intel"
+  ],
+  "night_skills": [
+   "Midnight Meeting",
+   "Ask The Right Question"
+  ],
+  "passive_skills": [],
+  "capture_chance": "Low"
+ },
+ {
+  "id": "3",
+  "ingame_name": "Network Specialist",
+  "name": "network specialist,ns,specialist,netspec",
+  "type": "Investigative",
+  "unique": false,
+  "guaranteed": false,
+  "description": "While you have a few tricks under your sleeve to hack computers, you are much more useful to the operation thanks to your deep knowledge in network protocols and infrastructure. While you can be on the offensive team, your skills are most valuable to investigate your own comrades: finding out who is a liar early on can be the difference between prison and freedom.",
+  "faction": "NETSEC",
+  "wincon": "Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
+  "day_skills": [
+   "Hack Target",
+   "Wire Shark",
+   "Probe Node"
+  ],
+  "night_skills": [
+   "Cover Your Tracks",
+   "Review Connection Logs"
+  ],
+  "passive_skills": [],
+  "capture_chance": "Moderate"
+ },
+ {
+  "id": "5",
+  "ingame_name": "Social Engineer",
+  "name": "social engineer,se",
+  "type": "Investigative",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You know your way around computers and can hack, if necessary. However, your social skills are your real strength : lie and cheat your way to get the NETSEC group ahead of the competition",
+  "faction": "NETSEC",
+  "wincon": "Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
+  "day_skills": [
+   "Hack Target",
+   "Impersonate"
+  ],
+  "night_skills": [
+   "Doxx and stalk",
+   "Misdirection",
+   "Throw under the bus"
+  ],
+  "passive_skills": [],
+  "capture_chance": "Low"
+ },
+ {
+  "id": "4",
+  "ingame_name": "Blackhat",
+  "name": "blackhat,bh",
+  "type": "Offensive",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You’re not just good in hacking into target machines - you are also very good in disrupting other people plans. While your main task in gaining control of target machines, the Operation Leader also trusts you will use your skills to slow down law enforcement progress in their investigation.",
+  "faction": "NETSEC",
+  "wincon": "Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
+  "day_skills": [
+   "Hack Target",
+   "Exploit vulnerability",
+   "Denial of Service"
+  ],
+  "night_skills": [
+   "Midnight Meeting"
+  ],
+  "passive_skills": [
+   "Not a Snitch"
+  ],
+  "capture_chance": "Very High"
+ },
+ {
+  "id": "20",
+  "ingame_name": "Improvised Hacker",
+  "name": "improvised hacker,ih,hacker",
+  "type": "Offensive",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You never learnt anything about this stuff and were hired for different reasons. You will blindly follow instructions, and hope for the best.",
+  "faction": "NETSEC",
+  "wincon": "Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
+  "day_skills": [
+   "Hack Target",
+   "Download Intel"
+  ],
+  "night_skills": [
+   "Move Hideout",
+   "Dumpster Dive"
+  ],
+  "passive_skills": [],
+  "capture_chance": "Very Low"
+ },
+ {
+  "id": "7",
+  "ingame_name": "Spearphisher",
+  "name": "spearphisher,sp,sf",
+  "type": "Offensive",
+  "unique": false,
+  "guaranteed": false,
+  "description": "While you’re not as good as the blackhat, you know your way into other people’s machines. You’re specialized in crafting traps to aid your lack of advanced skill, either via software or social manipulation, in order to gain and exploit trust from your target.",
+  "faction": "NETSEC",
+  "wincon": "Hack the target computer. If we succeed, even if we are arrested we are guaranteed to get out of jail, given who our client is...",
+  "day_skills": [
+   "Hack Target",
+   "Spearphishing Execution",
+   "Download Intel"
+  ],
+  "night_skills": [
+   "Misdirection",
+   "Spearphishing Preparation"
+  ],
+  "passive_skills": [],
+  "capture_chance": "Very Low"
+ },
+ {
+  "id": "12",
+  "ingame_name": "Bounty Hunter",
+  "name": "bounty hunter,bounty,hunter,bohu",
+  "type": "Field Operations",
+  "unique": true,
+  "guaranteed": false,
+  "description": "You don’t CARE about the hack in progress. You just want some sweet, sweet money. It cost you a significant amount of cash buying your way into the crew, but now, it’s time for a big fat paycheck.",
+  "faction": "NEUTRAL",
+  "wincon": "Contribute to the arrest of at least 3 NETSEC targets,either directly or by denouncing them to AGENTs with the 'spill the beans' skill. Don't die in the process.",
+  "day_skills": [
+   "Unskilled Attack",
+   "Spill the Beans",
+   "Plant Fake Information"
+  ],
+  "night_skills": [
+   "Doxx and stalk",
+   "Frame",
+   "Citizen's Arrest"
+  ],
+  "passive_skills": [
+   "No Dirt on Me",
+   "Not a Snitch"
+  ]
+ },
+ {
+  "id": "10",
+  "ingame_name": "Journalist",
+  "name": "journalist,journ,journy",
+  "type": "Investigative",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You managed to buy yourself into the NETSEC GROUP via certain questionable….connections. You’re here to write the next big story, on how one of the greatest hack of all time was coordinated (if successful) or dismantled by law enforcement (if unsuccessful). Either way, things are looking up for you - if you don’t get yourself killed, that is.",
+  "faction": "NEUTRAL",
+  "wincon": "Survive until the end writing at least three articles in the process. Whoever wins is not relevant to your objective.",
+  "day_skills": [
+   "Unskilled Attack",
+   "Impartial Sabotage"
+  ],
+  "night_skills": [
+   "Get Scoop",
+   "Write Article",
+   "Expose Operation Leader"
+  ],
+  "passive_skills": [
+   "No Dirt on Me",
+   "Not a Snitch"
+  ]
+ },
+ {
+  "id": "11",
+  "ingame_name": "Script Kiddie",
+  "name": "script kiddie,sk",
+  "type": "Offensive",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You’re a failed computer engineer, barely graduated (and only because you cheated all your way to graduation). You’ve always wanted to become a ‘master haxx0r’ but really are clueless about IT in general. You’re not sure how you manged to get into the crew - possibly someone is going to use you a scapegoat?",
+  "faction": "NEUTRAL",
+  "wincon": "Welp, you are now playing with the big boys and want to go home, but you can't. Survive until the end, do not get arrested.",
+  "day_skills": [
+   "Create Hideout",
+   "Denial of Service",
+   "Script Kiddie Attack"
+  ],
+  "night_skills": [
+   "Move Hideout"
+  ],
+  "passive_skills": [
+   "Not a Snitch",
+   "Unsecured Device"
+  ]
+ },
+ {
+  "id": "14",
+  "ingame_name": "Resentful Criminal",
+  "name": "resentful criminal,rc,criminal",
+  "type": "Special",
+  "unique": true,
+  "guaranteed": false,
+  "description": "A long time ago, NETSEC screwed you over. Not to mention, what AGENTs did to you. You will have your revenge by making all of them fail.",
+  "faction": "NEUTRAL",
+  "wincon": "Get your revenge: have the Agent Leader killed (even if all in), and get rid of the Operation Leader. Survive this mess.",
+  "day_skills": [
+   "Unskilled Attack",
+   "Impersonate"
+  ],
+  "night_skills": [
+   "Looking for an old friend",
+   "Interrogate",
+   "Disorganized Murder"
+  ],
+  "passive_skills": [
+   "Not a Snitch"
+  ]
+ },
+ {
+  "id": "13",
+  "ingame_name": "Sociopath",
+  "name": "sociopath,socio",
+  "type": "Special",
+  "unique": true,
+  "guaranteed": false,
+  "description": "You used to be a very good hacker back in the day. However your mental health has gone a long way ago. You’re obsessed with becoming famous as one of the most dangerous hackers to ever walk the earth.",
+  "faction": "NEUTRAL",
+  "wincon": "Become Operation leader, then get arrested. That's all you want and need: becoming the most famous hacker in the news.",
+  "day_skills": [
+   "Hack Target",
+   "Crack Credentials"
+  ],
+  "night_skills": [
+   "Follow",
+   "Frame",
+   "Murder"
+  ],
+  "passive_skills": [
+   "Unstable Mind",
+   "Not a Snitch"
+  ],
+  "capture_chance": "Very Low"
+ },
+ {
+  "id": "22",
+  "ingame_name": "Rival Hacker",
+  "name": "rival hacker,rh",
+  "type": "Offensive",
+  "unique": true,
+  "guaranteed": false,
+  "description": "NETSEC, our rival crew, is oblivious that for once, we were ahead of them and infiltrated the target already. A great chance to take them down from the inside this time...",
+  "faction": "NEUTRAL",
+  "wincon": "Do not let NETSEC win. Survive and do not get arrested.",
+  "day_skills": [
+   "Hack Target",
+   "Harden Node",
+   "Jam Network"
+  ],
+  "night_skills": [
+   "Move Hideout",
+   "Wiretap",
+   "Wipe"
+  ],
+  "passive_skills": [
+   "Blackmailed Informer",
+   "Prepared for Anything"
+  ],
+  "capture_chance": "Moderate"
+ },
+ {
+  "id": "23",
+  "ingame_name": "Corrupt Detective",
+  "name": "corrupt detective,cd,detective",
+  "type": "Field Operations",
+  "unique": true,
+  "guaranteed": false,
+  "description": "You've been using your position in law enforcement to pay for an unhealthy lifestyle and various people have taken notice, including the Operation Leader. This will be your last job: cash out and get out, while there is still time.",
+  "faction": "NEUTRAL",
+  "wincon": "Steal and Upload anywhere the requested intel and do not let AGENTs win: survive and do not get arrested.",
+  "day_skills": [
+   "Unskilled Attack",
+   "Upload Intel",
+   "Get Bribe"
+  ],
+  "night_skills": [
+   "Follow",
+   "Throw under the bus",
+   "Steal Intel"
+  ],
+  "passive_skills": [
+   "Not a Snitch",
+   "Agent Scum"
+  ]
+ },
+ {
+  "id": "15",
+  "ingame_name": "Agent Leader",
+  "name": "agent leader,al",
+  "type": "Special",
+  "unique": true,
+  "guaranteed": false,
+  "description": " You have been tasked in closing down the NETSEC crew forever - a dangerous task… that you have to do. You can’t resort to violence, but you have the government - and its resources - on your side..",
+  "faction": "AGENT",
+  "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative.",
+  "day_skills": [
+   "All In",
+   "Rollback",
+   "Computer forensics background"
+  ],
+  "night_skills": [
+   "Midnight Meeting",
+   "Strike Deal",
+   "Intelligence Informer"
+  ],
+  "passive_skills": [
+   "Cover Checks Out",
+   "Topology Knowledge"
+  ],
+  "capture_chance": "Moderate"
+ },
+ {
+  "id": "16",
+  "ingame_name": "Field Agent",
+  "name": "field agent,fa",
+  "type": "Field Operations",
+  "unique": true,
+  "guaranteed": false,
+  "description": "You are tasked with the actual arrest of NETSEC operatives, working closely with the Agent Leader to bring people to justice.",
+  "faction": "AGENT",
+  "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative.",
+  "day_skills": [
+   "Alter Logs",
+   "Unskilled Attack",
+   "ISP Isolation"
+  ],
+  "night_skills": [
+   "Sting",
+   "Arrest",
+   "Planned Raid"
+  ],
+  "passive_skills": [
+   "Topology Knowledge"
+  ]
+ },
+ {
+  "id": "17",
+  "ingame_name": "Converted NETSEC/Field-OP",
+  "name": "converted netsec/field-op,converted field,converted op,converted field operation,converted 1,converted1",
+  "type": "Field Operations",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You used to be part of the NETSEC group, until the law knocked on your door. You accepted a deal and now, to avoid prison, you must take down the very same organization you believed in firmly. You will aid the investigation with your field operation skills.",
+  "faction": "AGENT",
+  "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative.",
+  "day_skills": [
+   "Plant Fake Information",
+   "Jam Network"
+  ],
+  "night_skills": [
+   "Search for Keyloggers",
+   "Wiretap",
+   "Add Route"
+  ],
+  "passive_skills": [
+   "Topology Knowledge"
+  ]
+ },
+ {
+  "id": "18",
+  "ingame_name": "Converted NETSEC/Investigative",
+  "name": "converted netsec/investigative,converted invest,converted investigative,converted inv,converted 2,converted2",
+  "type": "Investigative",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You used to be part of the NETSEC group, until the law knocked on your door. You accepted a deal and now, to avoid prison, you must take down the very same organization you believed in firmly. You will aid the investigation with your network security investigative skills, from within the NETSEC itself.",
+  "faction": "AGENT",
+  "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative.",
+  "day_skills": [
+   "Alter Logs",
+   "Impersonate"
+  ],
+  "night_skills": [
+   "Follow",
+   "Frame",
+   "Setup"
+  ],
+  "passive_skills": [
+   "Topology Knowledge"
+  ]
+ },
+ {
+  "id": "19",
+  "ingame_name": "Converted NETSEC/offensive",
+  "name": "converted netsec/offensive,coverted offensive,converted off,converted3,converted 3",
+  "type": "Offensive",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You used to be part of the NETSEC group, until the law knocked on your door. You accepted a deal and now, to avoid prison, you must take down the very same organization you believed in firmly. You will aid the investigation with your network security offensive skills, from within the NETSEC itself.",
+  "faction": "AGENT",
+  "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative.",
+  "day_skills": [
+   "Rollback",
+   "Harden Node"
+  ],
+  "night_skills": [
+   "Midnight Meeting",
+   "Wipe"
+  ],
+  "passive_skills": [
+   "Topology Knowledge"
+  ]
+ },
+ {
+  "id": "21",
+  "ingame_name": "Runaway Snitch",
+  "name": "runaway snitch,rs,snitch",
+  "type": "Special",
+  "unique": false,
+  "guaranteed": false,
+  "description": "You are panicking, not thinking straight, and rightly so - NETSEC is out to get you and no AGENT can help you out of this mess now. Stop the hack with any means necessary, run away, and start a new life in the shadows.",
+  "faction": "AGENT",
+  "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative.",
+  "day_skills": [
+   "Unskilled Attack"
+  ],
+  "night_skills": [
+   "Disorganized Murder",
+   "Snitch To Cops"
+  ],
+  "passive_skills": [
+   "Topology Knowledge"
+  ]
+ }
 ]

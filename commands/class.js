@@ -23,7 +23,7 @@ module.exports = {
         // class data embed
         embeds.push(await makeEmbed(getClassColor(classInfo.faction), 'Class Data', { name: classInfo.ingame_name, iconURL: message.author.avatarURL() }, [
             { name: "Faction", value: classInfo.faction, inline: true},{ name: "Type", value: classInfo.type, inline: true }, { name: "Unique", value: classInfo.unique ? 'Yes' : 'No', inline: true },
-            { name: "Guarenteed Spawn", value: classInfo.guarenteed ? 'Yes' : 'No' , inline: true }, { name: "Node Capture Chance", value: classInfo.capture_chance || 'Cannot Hack' },
+            { name: "Guaranteed Spawn", value: classInfo.guaranteed ? 'Yes' : 'No' , inline: true }, { name: "Node Capture Chance", value: classInfo.capture_chance || 'Cannot Hack' },
             { name: "Win Condition", value: classInfo.wincon }
         ], getClassIcon(classInfo.id), null, classInfo.description))
         // class skills embed
