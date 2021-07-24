@@ -28,23 +28,17 @@ bot.on("ready", () => {
 })
 
 bot.on("message", async (message) => {
-    // if(!message.content.startsWith(config.prefix) || message.author.bot) return
-    // const args = message.content.slice(config.prefix.length).split(/ +/)
-    // const command = getCommandName(args.shift().toLowerCase(), commandAliases)
-    // if(!bot.commands.has(command)) return
-    // if(bot.commands.get(command).channels && !bot.commands.get(command).channels.includes(message.channel.id)) return // wrong channel
-    // try {
-    //     bot.commands.get(command).execute(message, args, bot)
-    // } catch(err) {
-    //     log(`main: error executing a command. ${err.message}`, "error")
-    //     message.reply(getString(message.member, "commandError"))
-    // }
-    if(message.author.bot) return
-    const botMember = await message.guild.members.fetch(bot.user.id, true)
-    botMember.setNickname(message.content.split(" ")[0])
-    message.channel.send(message.content.split(" ")[1])
-    botMember.setNickname("")
-    return
+    if(!message.content.startsWith(config.prefix) || message.author.bot) return
+    const args = message.content.slice(config.prefix.length).split(/ +/)
+    const command = getCommandName(args.shift().toLowerCase(), commandAliases)
+    if(!bot.commands.has(command)) return
+    if(bot.commands.get(command).channels && !bot.commands.get(command).channels.includes(message.channel.id)) return // wrong channel
+    try {
+        bot.commands.get(command).execute(message, args, bot)
+    } catch(err) {
+        log(`main: error executing a command. ${err.message}`, "error")
+        message.reply(getString(message.member, "commandError"))
+    }
 })
 
 bot.login(process.env.BOT_TOKEN)

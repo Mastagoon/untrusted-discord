@@ -12,16 +12,18 @@ module.exports = async(data, message, userId, time = 120000) => {
     }
     let i = 0
     for(embed of embeds) {
-        embeds[i] = new Discord.MessageEmbed(embed).setFooter(`Page ${i+1}/${pages} | Use the arrow emojis below to browse through the pages.`, "https://cdn.discordapp.com/attachments/844031096752570398/844330289622286356/logo_untrusted.png")
+        embeds[i] = new Discord.MessageEmbed(embed).setFooter(`Page ${i+1}/${pages} | ${message.guild.me.hasPermission("MANAGE_MESSAGES") ? "Use the arrow emojis below to browse through the pages." : "Give me 'manage messages' permission so that i can do my job better."}`, "https://cdn.discordapp.com/attachments/844031096752570398/844330289622286356/logo_untrusted.png")
         i++
     }
-    const listEmbed = new Discord.MessageEmbed(list).setFooter(`Index page | Please enter a page number.`, "https://cdn.discordapp.com/attachments/844031096752570398/844330289622286356/logo_untrusted.png")
+    const listEmbed = new Discord.MessageEmbed(list).setFooter(`Index page | 
+    ${message.guild.me.hasPermission("MANAGE_MESSAGES") ? "Please enter a page number." : "Give me 'manage messages' permission so that i can do my job better"}`, "https://cdn.discordapp.com/attachments/844031096752570398/844330289622286356/logo_untrusted.png")
     message.edit("", embeds[0])
     let index = 0
     for(emoji of emojis) await message.react(emoji)
     const filter = (r, u) => emojis.includes(r.emoji.name) && u.id === userId
     const reactionCollector = message.createReactionCollector(filter, { time })
-    // reactionCollector.on(`end`,() => message.reactions.removeAll())  #TODO uncomment me when we have the messsage alteration permission
+    if(message.guild.me.hasPermission("MANAGE_MESSAGES"))
+        reactionCollector.on(`end`,() => message.reactions.removeAll())
     reactionCollector.on(`collect`, (r,u) => {
         switch(emojis.indexOf(r.emoji.name)) {
             case 0: //previous
@@ -55,6 +57,7 @@ module.exports = async(data, message, userId, time = 120000) => {
                 })
                 break
         }
-        // r.users.remove(u.id) #TODO uncomment me when we have the messsage alteration permission
+        if(message.guild.me.hasPermission("MANAGE_MESSAGES"))
+            r.users.remove(u.id)
     })
 }
