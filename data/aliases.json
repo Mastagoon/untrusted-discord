@@ -1,0 +1,94 @@
+[
+ {
+  "id": "1",
+  "name": "operation leader,ol"
+ },
+ {
+  "id": "2",
+  "name": "cctv specialist,cctv,ctv"
+ },
+ {
+  "id": "8",
+  "name": "enforcer,enf"
+ },
+ {
+  "id": "6",
+  "name": "inside man,im,inside,man"
+ },
+ {
+  "id": "9",
+  "name": "analyst"
+ },
+ {
+  "id": "3",
+  "name": "network specialist,ns,specialist,netspec"
+ },
+ {
+  "id": "5",
+  "name": "social engineer,se"
+ },
+ {
+  "id": "4",
+  "name": "blackhat,bh"
+ },
+ {
+  "id": "20",
+  "name": "improvised hacker,ih,hacker"
+ },
+ {
+  "id": "7",
+  "name": "spearphisher,sp,sf"
+ },
+ {
+  "id": "12",
+  "name": "bounty hunter,bounty,hunter,bohu"
+ },
+ {
+  "id": "10",
+  "name": "journalist,journ,journy"
+ },
+ {
+  "id": "11",
+  "name": "script kiddie,sk"
+ },
+ {
+  "id": "14",
+  "name": "resentful criminal,rc,criminal"
+ },
+ {
+  "id": "13",
+  "name": "sociopath,socio"
+ },
+ {
+  "id": "22",
+  "name": "rival hacker,rh"
+ },
+ {
+  "id": "23",
+  "name": "corrupt detective,cd,detective"
+ },
+ {
+  "id": "15",
+  "name": "agent leader,al"
+ },
+ {
+  "id": "16",
+  "name": "field agent,fa"
+ },
+ {
+  "id": "17",
+  "name": "converted netsec/field-op,converted field,converted op,converted field operation,converted 1,converted1"
+ },
+ {
+  "id": "18",
+  "name": "converted netsec/investigative,converted invest,converted investigative,converted inv,converted 2,converted2"
+ },
+ {
+  "id": "19",
+  "name": "converted netsec/offensive,coverted offensive,converted off,converted3,converted 3"
+ },
+ {
+  "id": "21",
+  "name": "runaway snitch,rs,snitch"
+ }
+]
