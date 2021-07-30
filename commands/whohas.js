@@ -11,6 +11,8 @@ module.exports = {
     usage: "`"+config.prefix+"whohas <skill name>`",
     aliases: 'wh,who',
     execute: async (message, args) => {
+        if(Math.floor(Math.random() * 100) > 98) 
+            messsage.reply("Everyone asks me !whohas. but nobody asks me how are you untrusted bot.....")
         if(!args[0]) return message.reply("Usage `"+config.prefix+"whohas <skill name>`")
         const skillInfo = skillsData.find(sk => sk.name.toLowerCase().includes(args.join(" ").toLowerCase())) || 
         skillsData.find(sk => sk.name.split(" ").reduce((res, word) => res += word.slice(0,1), '').toLowerCase() == args[0].toLowerCase())
