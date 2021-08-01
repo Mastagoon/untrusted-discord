@@ -20,7 +20,8 @@
   ],
   "passive_skills": [
    "Not a Snitch",
-   "Covert Broadcast"
+   "Covert Broadcast",
+   "Person of Interest"
   ],
   "capture_chance": "High"
  },
@@ -44,7 +45,8 @@
    "Install CCTV Surveillance"
   ],
   "passive_skills": [
-   "Perform CCTV Surveillance"
+   "Perform CCTV Surveillance",
+   "Person of Interest"
   ]
  },
  {
@@ -66,7 +68,8 @@
    "Disorganized Murder"
   ],
   "passive_skills": [
-   "Diversion"
+   "Diversion",
+   "Person of Interest"
   ]
  },
  {
@@ -90,7 +93,8 @@
    "Dumpster Dive"
   ],
   "passive_skills": [
-   "Target Knowledge"
+   "Target Knowledge",
+   "Person of Interest"
   ]
  },
  {
@@ -112,7 +116,9 @@
    "Midnight Meeting",
    "Ask The Right Question"
   ],
-  "passive_skills": [],
+  "passive_skills": [
+   "Person of Interest"
+  ],
   "capture_chance": "Low"
  },
  {
@@ -134,7 +140,9 @@
    "Cover Your Tracks",
    "Review Connection Logs"
   ],
-  "passive_skills": [],
+  "passive_skills": [
+   "Person of Interest"
+  ],
   "capture_chance": "Moderate"
  },
  {
@@ -178,7 +186,8 @@
    "Midnight Meeting"
   ],
   "passive_skills": [
-   "Not a Snitch"
+   "Not a Snitch",
+   "Person of Interest"
   ],
   "capture_chance": "Very High"
  },
@@ -200,7 +209,9 @@
    "Move Hideout",
    "Dumpster Dive"
   ],
-  "passive_skills": [],
+  "passive_skills": [
+   "Person of Interest"
+  ],
   "capture_chance": "Very Low"
  },
  {
@@ -219,10 +230,13 @@
    "Download Intel"
   ],
   "night_skills": [
+   "Move Hideout",
    "Misdirection",
    "Spearphishing Preparation"
   ],
-  "passive_skills": [],
+  "passive_skills": [
+   "Person of Interest"
+  ],
   "capture_chance": "Very Low"
  },
  {
@@ -290,11 +304,36 @@
    "Script Kiddie Attack"
   ],
   "night_skills": [
-   "Move Hideout"
+   "Move Hideout",
+   "Wake-up Call"
   ],
   "passive_skills": [
    "Not a Snitch",
    "Unsecured Device"
+  ]
+ },
+ {
+  "id": "24",
+  "ingame_name": "Panicked Blabbermouth",
+  "name": "panicked blabbermouth,pb,blabber,mouth",
+  "type": "Offensive",
+  "unique": false,
+  "guaranteed": false,
+  "description": "Death was a wake up call for you. You want out, one way or another, motivated by your newly discovered hatred for NETSEC after witnessing death... maybe a journalist can help you expose this criminal organization?<br><br>Nobody starts the game as Panicked Blabbermouth. Only Script Kiddies can become this class.",
+  "faction": "NEUTRAL",
+  "wincon": "Do not die: in addition to that, NETSEC must not win.",
+  "day_skills": [
+   "Unskilled Attack",
+   "Create Hideout",
+   "Denial of Service"
+  ],
+  "night_skills": [
+   "Move Hideout",
+   "Murder Journalist"
+  ],
+  "passive_skills": [
+   "Unsecured Device",
+   "Blabbermouth"
   ]
  },
  {
@@ -357,6 +396,7 @@
   "wincon": "Do not let NETSEC win. Survive and do not get arrested.",
   "day_skills": [
    "Hack Target",
+   "Unskilled Attack",
    "Harden Node",
    "Jam Network"
   ],
@@ -367,7 +407,8 @@
   ],
   "passive_skills": [
    "Blackmailed Informer",
-   "Prepared for Anything"
+   "Prepared for Anything",
+   "Person of Interest"
   ],
   "capture_chance": "Moderate"
  },
@@ -393,7 +434,8 @@
   ],
   "passive_skills": [
    "Not a Snitch",
-   "Agent Scum"
+   "Agent Scum",
+   "Person of Interest"
   ]
  },
  {
@@ -407,6 +449,7 @@
   "faction": "AGENT",
   "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative.",
   "day_skills": [
+   "Unskilled Attack",
    "All In",
    "Rollback",
    "Computer forensics background"
@@ -418,7 +461,8 @@
   ],
   "passive_skills": [
    "Cover Checks Out",
-   "Topology Knowledge"
+   "Topology Knowledge",
+   "Person of Interest"
   ],
   "capture_chance": "Moderate"
  },
@@ -440,10 +484,12 @@
   "night_skills": [
    "Sting",
    "Arrest",
+   "Follow",
    "Planned Raid"
   ],
   "passive_skills": [
-   "Topology Knowledge"
+   "Topology Knowledge",
+   "Person of Interest"
   ]
  },
  {
@@ -463,10 +509,12 @@
   "night_skills": [
    "Search for Keyloggers",
    "Wiretap",
-   "Add Route"
+   "Add Route",
+   "Disorganized Murder"
   ],
   "passive_skills": [
-   "Topology Knowledge"
+   "Topology Knowledge",
+   "Person of Interest"
   ]
  },
  {
@@ -489,7 +537,8 @@
    "Setup"
   ],
   "passive_skills": [
-   "Topology Knowledge"
+   "Topology Knowledge",
+   "Person of Interest"
   ]
  },
  {
@@ -503,6 +552,7 @@
   "faction": "AGENT",
   "wincon": "Prevent NETSEC from hacking the target machine and arrest their original leader, or gain root privileges from their Operation Leader, or arrest every NETSEC operative.",
   "day_skills": [
+   "Unskilled Attack",
    "Rollback",
    "Harden Node"
   ],
@@ -511,7 +561,8 @@
    "Wipe"
   ],
   "passive_skills": [
-   "Topology Knowledge"
+   "Topology Knowledge",
+   "Person of Interest"
   ]
  },
  {
@@ -532,7 +583,8 @@
    "Snitch To Cops"
   ],
   "passive_skills": [
-   "Topology Knowledge"
+   "Topology Knowledge",
+   "Person of Interest"
   ]
  }
 ]

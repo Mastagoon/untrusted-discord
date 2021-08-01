@@ -91,6 +91,19 @@
 		"RNG_based_success":"No"
 	},
 	{
+		"id":"87",
+		"name":"Blabbermouth",
+		"aliases":"blabbermouth,bmouth",
+		"description":"Journalists will gain an extra scoop from you. Everytime you open your mouth you unknowinlgy reveal something important. Amazing.",
+		"type":"Passive",
+		"targets":"None",
+		"Cooldown_in_days":"0",
+		"Visits_target":"No",
+		"Occupies_target":"No",
+		"Maximum_uses":"unlimited",
+		"RNG_based_success":"No"
+	},
+	{
 		"id":"81",
 		"name":"Blackmailed Informer",
 		"aliases":"blackmailed informer",
@@ -159,7 +172,7 @@
 		"id":"70",
 		"name":"Computer forensics background",
 		"aliases":"computer forensics background",
-		"description":"You don't know everything: you know enough for the job. (Assigns a random skill between Unskilled Attack, Hack, Denial of Service)",
+		"description":"You don't know everything: you know enough for the job. (Assigns a random skill between Hack, Harden, Denial of Service)",
 		"type":"Day",
 		"targets":"None",
 		"Cooldown_in_days":"0",
@@ -536,7 +549,7 @@
 		"id":"32",
 		"name":"Get Scoop",
 		"aliases":"get scoop",
-		"description":"Covertly ask the right questions that will allow you to write an article later.",
+		"description":"Covertly interview your target to write an article later: you will get a scoop if the target player has the "Person of Interest" or "Blabbermouth" skill",
 		"type":"Night",
 		"targets":"Players",
 		"Cooldown_in_days":"2",
@@ -633,7 +646,7 @@
 		"Cooldown_in_days":"0",
 		"Visits_target":"No",
 		"Occupies_target":"Yes",
-		"Maximum_uses":"2",
+		"Maximum_uses":"1",
 		"RNG_based_success":"No"
 	},
 	{
@@ -645,6 +658,19 @@
 		"targets":"None",
 		"Cooldown_in_days":"0",
 		"Visits_target":"No",
+		"Occupies_target":"No",
+		"Maximum_uses":"1",
+		"RNG_based_success":"No"
+	},
+	{
+		"id":"90",
+		"name":"Murder Journalist",
+		"aliases":"murder journalist",
+		"description":"Muster up all your courage to kill a journalist. Your family can't know about the mess you are in.",
+		"type":"Night",
+		"targets":"Players",
+		"Cooldown_in_days":"0",
+		"Visits_target":"Yes",
 		"Occupies_target":"No",
 		"Maximum_uses":"1",
 		"RNG_based_success":"No"
@@ -667,6 +693,19 @@
 		"name":"No Dirt on Me",
 		"aliases":"no dirt on me",
 		"description":"You infiltrated NETSEC via questionable connections, but didn't actually commit any crime. AGENTS have no power on you (conversion immune, arrest immune unless framed)",
+		"type":"Passive",
+		"targets":"None",
+		"Cooldown_in_days":"0",
+		"Visits_target":"No",
+		"Occupies_target":"No",
+		"Maximum_uses":"unlimited",
+		"RNG_based_success":"No"
+	},
+	{
+		"id":"88",
+		"name":"Person of Interest",
+		"aliases":"person of interest,pi",
+		"description":"You are directly involved in the hack operation. Journalists will gain a scoop when using "Get Scoop" on you.",
 		"type":"Passive",
 		"targets":"None",
 		"Cooldown_in_days":"0",
@@ -958,7 +997,7 @@
 		"Cooldown_in_days":"0",
 		"Visits_target":"No",
 		"Occupies_target":"No",
-		"Maximum_uses":"5",
+		"Maximum_uses":"unlimited",
 		"RNG_based_success":"No"
 	},
 	{
@@ -981,6 +1020,19 @@
 		"description":"Upload the stolen intel to the target node.",
 		"type":"Day",
 		"targets":"Node",
+		"Cooldown_in_days":"0",
+		"Visits_target":"No",
+		"Occupies_target":"No",
+		"Maximum_uses":"unlimited",
+		"RNG_based_success":"No"
+	},
+	{
+		"id":"89",
+		"name":"Wake-up Call",
+		"aliases":"wake-up call,wa,wac",
+		"description":"Listen to your conscience and turn against NETSEC. You will become a "Panicked Blabbermouth". Works only after at least three people have died.",
+		"type":"Night",
+		"targets":"None",
 		"Cooldown_in_days":"0",
 		"Visits_target":"No",
 		"Occupies_target":"No",
