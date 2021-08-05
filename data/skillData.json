@@ -157,8 +157,8 @@
 	},
 	{
 		"id":"73",
-		"name":"Citizen&#039;s Arrest",
-		"aliases":"citizen&#039;s arrest",
+		"name":"Citizen's Arrest",
+		"aliases":"citizen's arrest",
 		"description":"Attempt to arrest your target. Years in the force allows you to follow their protocol seamlessly: your cover will stay safe if you fail, except from journalists.",
 		"type":"Night",
 		"targets":"Players",
