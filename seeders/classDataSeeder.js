@@ -4,8 +4,6 @@ const fs = require("fs")
 
 axios.get("https://www.playuntrusted.com/publicAPI/publicAPI.php?request=getClasses").then(res => {
     const { data } = res
-    let regex = /\,(?!\s*?[\{\[\"\'\w])/g  // remove trailing commas
-    // const classList = JSON.parse(data.replace(regex, '').replace('"', '\"'))
     // add aliases
     for(cl of data) {
         const alias = classAliases.find(al => Number(al.id) == Number(cl.id))
