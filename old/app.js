@@ -14,28 +14,28 @@ const commandAliases = []
 const commandFiles = fs.readdirSync("./commands").filter(f => f.endsWith(".js"))
 
 
-for(const file of commandFiles) {
+for (const file of commandFiles) {
     const command = require(`./commands/${file}`)
     bot.commands.set(command.name, command)
-    command.aliases.split(",").forEach(al => commandAliases.push({alias: al, cmd: command.name}))
+    command.aliases.split(",").forEach(al => commandAliases.push({ alias: al, cmd: command.name }))
 }
 
 bot.on("ready", () => {
     log(`logged in as ${bot.user.tag}`, "info")
-    if(bot.user.username != config.bot_name)
+    if (bot.user.username != config.bot_name)
         bot.user.setUsername(config.bot_name)
     bot.user.setActivity(config.activity)
 })
 
-bot.on("message", async (message) => {
-    if(!message.content.startsWith(config.prefix) || message.author.bot) return
+bot.on("message", async(message) => {
+    if (!message.content.startsWith(config.prefix) || message.author.bot) return
     const args = message.content.slice(config.prefix.length).split(/ +/)
     const command = getCommandName(args.shift().toLowerCase(), commandAliases)
-    if(!bot.commands.has(command)) return
-    if(bot.commands.get(command).channels && !bot.commands.get(command).channels.includes(message.channel.id)) return // wrong channel
+    if (!bot.commands.has(command)) return
+    if (bot.commands.get(command).channels && !bot.commands.get(command).channels.includes(message.channel.id)) return // wrong channel
     try {
         bot.commands.get(command).execute(message, args, bot)
-    } catch(err) {
+    } catch (err) {
         log(`main: error executing a command. ${err.message}`, "error")
         message.reply(getString(message.member, "commandError"))
     }

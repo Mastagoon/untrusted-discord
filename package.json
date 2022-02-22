@@ -1,18 +1,21 @@
 {
-  "name": "untrusted-bot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "cheerio": "^1.0.0-rc.9",
-    "colors": "^1.4.0",
-    "discord.js": "^12.5.3",
-    "dotenv": "^9.0.2"
-  }
+    "name": "untrusted-discord",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/Mastagoon/untrusted-discord",
+    "author": "= <inzilagiway@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "dev": "node dist/app.js"
+    },
+    "dependencies": {
+        "@discordjs/builders": "^0.12.0",
+        "@discordjs/rest": "^0.3.0",
+        "axios": "^0.26.0",
+        "colorts": "^0.1.63",
+        "discord-api-types": "^0.27.2",
+        "discord.js": "^13.6.0",
+        "dotenv": "^16.0.0",
+        "typescript": "^4.5.5"
+    }
 }
