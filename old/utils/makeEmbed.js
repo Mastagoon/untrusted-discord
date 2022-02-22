@@ -12,7 +12,7 @@ const Discord = require("discord.js")
  * @param {URL|Undefined} image a large image at the top right corner of the embed
  * @returns a message embed object
  */
-module.exports = makeEmbed = async (color = "#00ff00", title=null, author=null, fields=null, thumbnail=null,  footer=null, description=null, image=null) => {
+module.exports = makeEmbed = async(color = "#00ff00", title = null, author = null, fields = null, thumbnail = null, footer = null, description = null, image = null) => {
     const embed = new Discord.MessageEmbed()
     embed.setColor(color)
     title && embed.setTitle(title)

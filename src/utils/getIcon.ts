@@ -1,0 +1,1 @@
+export default (id: number, isClass: boolean = false) => `https://www.playuntrusted.com/${isClass ? 'classicons' : 'skillsicons'}/${id}.png`
