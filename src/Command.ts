@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders"
 import { CommandArg, CommandExecuteParameters } from "./types"
+import Log from "./utils/logger"
 
 export class Command {
     name: string
@@ -11,6 +12,7 @@ export class Command {
 
     constructor(name: string, description: string, aliases: string[], execute: (options: CommandExecuteParameters) => void,
         options?: CommandArg[]) {
+        Log.debug(`Adding command: ${name}`)
         this.name = name
         this.description = description
         this.aliases = aliases

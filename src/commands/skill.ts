@@ -17,7 +17,7 @@ const options: CommandArg[] = [
     }
 ]
 
-const getClassesWithThisSkill = (skill: Skill, user: User): MessageEmbed => {
+export const getClassesWithThisSkill = (skill: Skill, user: User): MessageEmbed => {
     const list: EmbedField[] = []
     classData.map((cl) => {
         const skillList = skill.type.toLowerCase() == 'night' ? cl.night_skills

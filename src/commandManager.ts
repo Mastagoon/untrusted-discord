@@ -7,34 +7,17 @@ import fs from "fs"
 import path from 'path'
 import { Command } from "./Command"
 
-
-// const InitSlashCommands = async (bot: Client) => {
-//     const rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN ?? "")
-//     try {
-//         const slashCmds = []
-//         for (const cmd of bot.commands) {
-//             slashCmds.push(cmd[1].data.toJSON())
-//         }
-//         Log.info(`Refreshing slash commands...`)
-//         await rest.put(
-//             API.Routes.applicationGuildCommands(bot.user?.id ?? '', config.slash_command_gid),
-//             { body: slashCmds }
-//         )
-//         Log.info(`Successfully refreshed slash commands.`)
-//     } catch (err: any) {
-//         Log.error(err.message)
-//         // throw err
-//     }
-// }
-
-
 class CommandManager {
     private bot: Client
 
     constructor(bot: Client) {
         this.bot = bot
         // load commands
-        if (!bot.commands) this.loadCommands()
+
+    }
+
+    public async Init() {
+        if (!this.bot.commands) this.loadCommands()
         this.InitSlashCommands()
     }
 

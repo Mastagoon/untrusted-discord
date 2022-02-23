@@ -18,7 +18,7 @@ export default {
         default: true // The default language. Only one language can be default.
     }],
     // debug mode for slash commands (guild commands)
-    commands_debug_mode: false,
+    commands_debug_mode: true,
     // guild ID for slash command testing
     slash_command_gid: '808703549940170794',
 }
