@@ -4,17 +4,15 @@ import { CommandArg, CommandExecuteParameters } from "./types"
 export class Command {
     name: string
     description: string
-    usage: string
     aliases: string[]
     execute: (options: CommandExecuteParameters) => void
     data: SlashCommandBuilder
     args: CommandArg[] = []
 
-    constructor(name: string, description: string, usage: string, aliases: string[], execute: (options: CommandExecuteParameters) => void,
+    constructor(name: string, description: string, aliases: string[], execute: (options: CommandExecuteParameters) => void,
         options?: CommandArg[]) {
         this.name = name
         this.description = description
-        this.usage = usage
         this.aliases = aliases
         this.execute = execute
         this.data = new SlashCommandBuilder().setName(this.name).setDescription(this.description)

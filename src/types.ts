@@ -28,6 +28,35 @@ export interface Skill {
     RNG_based_success: 'No' | 'Yes'
 }
 
+export enum Factions {
+    NEUTRAL = "NEUTRAL",
+    NETSEC = "NETSEC",
+    AGENT = "AGENT"
+}
+
+export enum CaptureChance {
+    HIGH = "High",
+    MODERATE = "Moderate",
+    LOW = "Low",
+    VERYLOW = "Very Low"
+}
+
+export interface UntrustedClass {
+    id: string
+    ingame_name: string
+    name: string
+    type: "Special" | "Field Operations" | "Investigative" | "Offensive"
+    unique: boolean
+    guarenteed: boolean
+    description: string
+    faction: Factions
+    wincon: string
+    day_skills: string[]
+    night_skills: string[]
+    passive_skills: string[]
+    capture_chance?: CaptureChance
+}
+
 export interface EmbedArgs {
     color?: string
     title?: string

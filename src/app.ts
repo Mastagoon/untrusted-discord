@@ -53,9 +53,9 @@ bot.on('interactionCreate', async (ir: Interaction) => {
     }
 })
 
-bot.on('interactionCreate', (ir: Interaction) => {
-    if(ir.isButton()) console.log(ir)
-})
+// bot.on('interactionCreate', (ir: Interaction) => {
+//     if(ir.isButton()) console.log(ir)
+// })
 
 bot.on('messageCreate', (msg: Message) => {
     if (!msg.content.startsWith(config.prefix)) return
