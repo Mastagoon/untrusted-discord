@@ -4,7 +4,8 @@ import { Command } from "./lib/Command"
 import config from './lib/config'
 import CommandManager from "./lib/commandManager"
 import Log from "./utils/logger"
-dotenv.config({ path: __dirname + "/.env" })
+import path from "path"
+dotenv.config({ path: path.join(__dirname, ".env") })
 declare module "discord.js" {
     export interface Client {
         commands: Collection<string, Command>

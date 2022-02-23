@@ -68,3 +68,16 @@ export interface EmbedArgs {
     description?: string
     options: APIEmbed
 }
+
+export interface UserStats {
+    inOpsec: boolean
+    AvatarURL: string
+    currentLevel: string
+    levelDescription: string
+    currentXp: string
+    xPToNextLevel: string
+    seasonWins: string
+    totalWins: string
+    seasonLosses: string
+    totalLosses: string
+}

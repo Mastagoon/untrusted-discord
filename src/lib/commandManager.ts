@@ -22,10 +22,10 @@ class CommandManager {
     }
 
     loadCommands(): void {
-        const commandFiles = fs.readdirSync(path.join(__dirname, 'commands')).filter(f => f.endsWith('.js'))
+        const commandFiles = fs.readdirSync(path.join(__dirname, '..', 'commands')).filter(f => f.endsWith('.js'))
         this.bot.commands = new Collection()
         for (const file of commandFiles) {
-            const command = require(path.join(__dirname, 'commands', file)).default as Command
+            const command = require(path.join(__dirname,'..', 'commands', file)).default as Command
             this.bot.commands.set(command.name, command)
         }
     }
