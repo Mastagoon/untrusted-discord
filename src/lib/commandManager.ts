@@ -2,7 +2,7 @@ import { REST } from "@discordjs/rest"
 import * as API from 'discord-api-types/v9'
 import { Client, Collection } from "discord.js"
 import config from "./config"
-import Log from "./utils/logger"
+import Log from "../utils/logger"
 import fs from "fs"
 import path from 'path'
 import { Command } from "./Command"

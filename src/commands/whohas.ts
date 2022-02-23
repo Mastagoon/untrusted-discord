@@ -1,5 +1,5 @@
-import { Command } from "../Command"
-import config from "../config"
+import { Command } from "../lib/Command"
+import config from "../lib/config"
 import { CommandArg, CommandExecuteParameters } from "../types"
 import findSkill from "../utils/findSkill"
 import { getClassesWithThisSkill } from "./skill"

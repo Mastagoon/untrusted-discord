@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders"
-import { CommandArg, CommandExecuteParameters } from "./types"
-import Log from "./utils/logger"
+import { CommandArg, CommandExecuteParameters } from "../types"
+import Log from "../utils/logger"
 
 export class Command {
     name: string

@@ -1,8 +1,8 @@
 import Discord, { Collection, Interaction, Message } from "discord.js"
 import dotenv from 'dotenv'
-import { Command } from "./Command"
-import config from './config'
-import CommandManager from "./commandManager"
+import { Command } from "./lib/Command"
+import config from './lib/config'
+import CommandManager from "./lib/commandManager"
 import Log from "./utils/logger"
 dotenv.config({ path: __dirname + "/.env" })
 declare module "discord.js" {

@@ -1,6 +1,6 @@
 import { ButtonInteraction, CommandInteraction, EmbedField, InteractionCollector, InteractionReplyOptions, Message, MessageComponentInteraction, MessageEmbed, ReplyMessageOptions, User } from "discord.js"
-import { Command } from "../Command"
-import config from "../config"
+import { Command } from "../lib/Command"
+import config from "../lib/config"
 import { CommandArg, CommandExecuteParameters, UntrustedClass } from "../types"
 import findClass from "../utils/findClass"
 import findSkill from "../utils/findSkill"
