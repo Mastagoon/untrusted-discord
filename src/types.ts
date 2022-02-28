@@ -75,7 +75,7 @@ export interface UserStats {
     currentLevel: string
     levelDescription: string
     currentXp: string
-    xPToNextLevel: string
+    xpToNextLevel: string
     seasonWins: string
     totalWins: string
     seasonLosses: string
