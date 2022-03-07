@@ -15,16 +15,19 @@ const options: CommandArg[] = [
 ]
 
 const createStatEmbed = (user: User, name: string, data: UserStats): MessageEmbed => {
-    console.log(data)
-    getExpRate(Number(data.currentXp), Number(data.xpToNextLevel))
     return makeEmbed({
         color: 0x00FF00,
         title: `${name}'s stats`,
         author: { name: user.username, iconURL: user.avatarURL() ?? undefined },
         fields: [
-            { name: 'Level', value: data.currentLevel, inline: true },
-            { name: 'Experience', value: `${data.currentXp}/${data.xpToNextLevel}`, inline: true },
-            { name: 'test', value: "", inline: true },
+            { name: 'Level', value: `${data.levelDescription} (${data.currentLevel})`, inline: true },
+            { name: 'EXP to Next Level', value: `${getExpRate(Number(data.currentXp), Number(data.xpToNextLevel))}%`, inline: true },
+            { name: '\u200b', value: '\u200b', inline: true },
+            { name: "Total Wins", value: data.totalWins, inline: true },
+            { name: "Total Losses", value: data.totalLosses, inline: true },
+            { name: '\u200b', value: '\u200b', inline: true },
+            { name: "Winrate", value: Math.floor(Number(data.totalWins) / (Number(data.totalLosses) + Number(data.totalWins)) * 100) + "%", inline: true },
+            data.inOpsec === 'true' ? { name: "In Game", value: "🟢" } : { name: '\u200b', value: '\u200b', inline: true },
         ],
         thumbnail: { url: data.AvatarURL },
         footer: { text: 'Untrusted Bot', iconURL: config.avatar },

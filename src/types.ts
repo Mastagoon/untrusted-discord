@@ -70,7 +70,7 @@ export interface EmbedArgs {
 }
 
 export interface UserStats {
-    inOpsec: boolean
+    inOpsec: string
     AvatarURL: string
     currentLevel: string
     levelDescription: string
