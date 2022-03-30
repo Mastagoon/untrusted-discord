@@ -363,7 +363,7 @@
   {
     "id": "17",
     "ingame_name": "Mole (Converted Field Ops)",
-    "name": "field operations mole,fops mole",
+    "name": "converted field operations,converted fops,converted field,field operations mole,fops mole",
     "type": "Field Operations",
     "unique": false,
     "guaranteed": false,
@@ -382,7 +382,7 @@
   {
     "id": "18",
     "ingame_name": "Mole (Converted Inv.)",
-    "name": "investigate mole,inv mole",
+    "name": "converted investigate,converted invest,converted inv,investigate mole,inv mole",
     "type": "Investigative",
     "unique": false,
     "guaranteed": false,
@@ -396,7 +396,7 @@
   {
     "id": "19",
     "ingame_name": "Mole (Converted Offensive)",
-    "name": "offensive mole,off mole",
+    "name": "converted offensive,converted off,offensive mole,off mole",
     "type": "Offensive",
     "unique": false,
     "guaranteed": false,
