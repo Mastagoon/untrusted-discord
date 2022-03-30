@@ -54,7 +54,7 @@
   {
     "id": "6",
     "ingame_name": "Inside Man",
-    "name": "inside man,im,inside,man",
+    "name": "inside man,im,inside,man,ism",
     "type": "Field Operations",
     "unique": false,
     "guaranteed": false,
@@ -72,7 +72,7 @@
   {
     "id": "9",
     "ingame_name": "Analyst",
-    "name": "analyst",
+    "name": "analyst,anal",
     "type": "Investigative",
     "unique": false,
     "guaranteed": false,
@@ -132,7 +132,7 @@
   {
     "id": "20",
     "ingame_name": "Improvised Hacker",
-    "name": "improvised hacker,ih,hacker",
+    "name": "improvised hacker,ih",
     "type": "Offensive",
     "unique": false,
     "guaranteed": false,
@@ -147,7 +147,7 @@
   {
     "id": "7",
     "ingame_name": "Spearphisher",
-    "name": "spearphisher,sp,sf",
+    "name": "spearphisher,sp,sf,spear",
     "type": "Offensive",
     "unique": false,
     "guaranteed": false,
@@ -203,7 +203,7 @@
   {
     "id": "10",
     "ingame_name": "Journalist",
-    "name": "journalist,journ,journy",
+    "name": "journalist,journ,journy,journo",
     "type": "Investigative",
     "unique": false,
     "guaranteed": false,
@@ -363,7 +363,7 @@
   {
     "id": "17",
     "ingame_name": "Mole (Converted Field Ops)",
-    "name": "converted netsec/field-op,converted field,converted op,converted field operation,converted 1,converted1",
+    "name": "converted field operations,converted fops,converted field,field operations mole,fops mole",
     "type": "Field Operations",
     "unique": false,
     "guaranteed": false,
@@ -382,7 +382,7 @@
   {
     "id": "18",
     "ingame_name": "Mole (Converted Inv.)",
-    "name": "converted netsec/investigative,converted invest,converted investigative,converted inv,converted 2,converted2",
+    "name": "converted investigate,converted invest,converted inv,investigate mole,inv mole",
     "type": "Investigative",
     "unique": false,
     "guaranteed": false,
@@ -396,7 +396,7 @@
   {
     "id": "19",
     "ingame_name": "Mole (Converted Offensive)",
-    "name": "converted netsec/offensive,coverted offensive,converted off,converted3,converted 3",
+    "name": "converted offensive,converted off,offensive mole,off mole",
     "type": "Offensive",
     "unique": false,
     "guaranteed": false,
