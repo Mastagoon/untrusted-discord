@@ -33,6 +33,7 @@ bot.on('interactionCreate', async (ir: Interaction) => {
         command.execute({ type: 'interaction', interaction: ir })
     } catch (err: any) {
         console.log('err: ', err.message)
+        Log.error(`interactionCreateErr: ${err.message}`)
         await ir.reply({ content: 'There was an error while executing this command!', ephemeral: true })
     }
 })
