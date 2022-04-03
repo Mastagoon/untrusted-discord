@@ -63,10 +63,10 @@ const createClassEmbeds = (cl: UntrustedClass, user: User): MessageEmbed[] => {
     embeds[1].fields = classDaySkills
     embeds[1].description = classDaySkills.length ? "" : "This class has no Day Skills"
     embeds[1].title = "Day Skills"
-    embeds[2].fields = classDaySkills
-    embeds[2].description = classDaySkills.length ? "" : "This class has no Night Skills"
+    embeds[2].fields = classNightSkills
+    embeds[2].description = classNightSkills.length ? "" : "This class has no Night Skills"
     embeds[2].title = "Night Skills"
-    embeds[3].fields = classNightSkills
+    embeds[3].fields = classPassiveSkills
     embeds[3].description = classPassiveSkills.length ? "" : "This class has no Passive Skills"
     embeds[3].title = "Passive Skills"
 
