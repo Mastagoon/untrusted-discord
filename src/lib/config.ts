@@ -20,5 +20,5 @@ export default {
     // debug mode for slash commands (guild commands)
     commands_debug_mode: true,
     // guild ID for slash command testing
-    slash_command_gid: '808703549940170794',
+    slash_command_gid: '673234977948827720',
 }
