@@ -17,7 +17,7 @@ const playerCount = async (options: CommandExecuteParameters) => {
     return isSlash ? interaction?.reply(response) : message?.reply(response)
   }
   // positive number, give more details
-  const response = `There are currently **${playerCount.Online_players}.** \n There are **${playerCount.Open_lobbies} open lobbies** and **${playerCount.Active_games} active games.**`
+  const response = `There are currently **${playerCount.Online_players} operators online.** \n There are **${playerCount.Open_lobbies} open lobbies** and **${playerCount.Active_games} active games.**`
   return isSlash ? interaction?.reply(response) : message?.reply(response)
 }
 export default new Command(
