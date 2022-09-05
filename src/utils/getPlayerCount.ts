@@ -20,6 +20,6 @@ export default async (
     }
   }
   return `${
-    playerCount < 0 ? `Less than ${playerCount} ` : playerCount
-  } operators online`
+    playerCount < 0 ? `Less than ${Math.abs(playerCount)} ` : playerCount
+  } operatives online`
 }
