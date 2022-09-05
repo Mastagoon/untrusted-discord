@@ -13,11 +13,11 @@ const playerCount = async (options: CommandExecuteParameters) => {
       ? interaction?.reply("This feature is currently disabled.")
       : message?.reply("This feature is currently disabled.")
   if (typeof playerCount === "string") {
-    const response = `There are currently **less than ${playerCount} operators** online.`
+    const response = `There are currently **${playerCount}.**`
     return isSlash ? interaction?.reply(response) : message?.reply(response)
   }
   // positive number, give more details
-  const response = `There are currently **${playerCount.Online_players} operators** online.\n There are **${playerCount.Open_lobbies} open lobbies** and **${playerCount.Active_games} active games.**`
+  const response = `There are currently **${playerCount.Online_players}.** \n There are **${playerCount.Open_lobbies} open lobbies** and **${playerCount.Active_games} active games.**`
   return isSlash ? interaction?.reply(response) : message?.reply(response)
 }
 export default new Command(

@@ -26,10 +26,13 @@ bot.on("ready", async (): Promise<any> => {
   if (bot.user.username != config.bot_name)
     bot.user.setUsername(config.bot_name)
   // loop for player count
-  setTimeout(async () => {
+  setInterval(async () => {
     const playerCount = await getPlayerCount()
-    if (!playerCount) return bot.user?.setActivity(config.activity)
-    return bot.user?.setActivity(playerCount.toString())
+    console.log(playerCount)
+    if (!playerCount)
+      return bot.user?.setActivity(config.activity, { type: undefined })
+    // I couldn't remove the 'watching | playing' prefix from the activity
+    return bot.user?.setActivity(playerCount.toString(), { type: "WATCHING" })
   }, ONE_MINUTE)
 })
 
