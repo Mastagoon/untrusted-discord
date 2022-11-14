@@ -1,21 +1,22 @@
 {
-    "name": "untrusted-discord",
-    "version": "1.0.0",
-    "main": "index.js",
-    "repository": "https://github.com/Mastagoon/untrusted-discord",
-    "author": "= <inzilagiway@gmail.com>",
-    "license": "MIT",
-    "scripts": {
-        "dev": "node dist/app.js"
-    },
-    "dependencies": {
-        "@discordjs/builders": "^0.12.0",
-        "@discordjs/rest": "^0.3.0",
-        "axios": "^0.26.0",
-        "colorts": "^0.1.63",
-        "discord-api-types": "^0.27.2",
-        "discord.js": "^13.6.0",
-        "dotenv": "^16.0.0",
-        "typescript": "^4.5.5"
-    }
+  "name": "untrusted-discord",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Mastagoon/untrusted-discord",
+  "author": "= <inzilagiway@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node dist/app.js",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "axios": "^0.26.0",
+    "colorts": "^0.1.63",
+    "discord-api-types": "^0.27.2",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "typescript": "^4.5.5"
+  }
 }
