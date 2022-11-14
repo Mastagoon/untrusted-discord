@@ -44,4 +44,3 @@ jobs:
           npm install
           npm run build
           pm2 restart untrusted-discord
-          pm2 list
