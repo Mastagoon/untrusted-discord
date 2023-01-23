@@ -22,7 +22,7 @@ const playerCount = async (options: CommandExecuteParameters) => {
 }
 export default new Command(
   "playercount",
-  "Use this command to learn which classes has a certain skill",
+  "Use this command to check how many players are currently in-game.",
   ["pc", "online", "players", "operatives"],
   playerCount,
   options
