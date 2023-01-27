@@ -6,6 +6,8 @@ import CommandManager from "./lib/commandManager"
 import Log from "./utils/logger"
 import path from "path"
 import getPlayerCount from "./utils/getPlayerCount"
+import CronManager from "./lib/cronManager"
+
 dotenv.config({ path: path.join(__dirname, "..", ".env") })
 declare module "discord.js" {
 	export interface Client {
@@ -16,12 +18,14 @@ declare module "discord.js" {
 
 const ONE_MINUTE = 1000 * 60
 
-const bot = new Discord.Client({ intents: ["GUILD_MESSAGES", "GUILDS"] })
+const bot = new Discord.Client({ intents: ["GUILD_MESSAGES", "GUILDS", "GUILD_MEMBERS"] })
 
 bot.on("ready", async (): Promise<any> => {
 	if (!bot.user) return
 	const commandManager = new CommandManager(bot)
+	const threadManager = new CronManager(bot)
 	await commandManager.Init()
+	await threadManager.Init()
 	Log.info(`Logged in as ${bot.user.tag}`)
 	if (bot.user.username != config.bot_name)
 		bot.user.setUsername(config.bot_name)
@@ -88,3 +92,5 @@ bot.on("messageCreate", async (msg): Promise<any> => {
 })
 
 bot.login(process.env.BOT_TOKEN)
+
+export default bot

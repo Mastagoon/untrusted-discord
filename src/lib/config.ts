@@ -31,5 +31,6 @@ export default {
 	supporter_role_url: `http://localhost:3000/api/supportercode`,
 	supporter_role_id: "1068515356789977169",
 	untrusted_guild_id: "777637565243064341",
+	schedule_game_channel_id: "777955768456183828",
 	repo_url: `https://github.com/mastagoon/untrusted-discord`,
 }
