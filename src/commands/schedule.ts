@@ -57,7 +57,7 @@ const schedule = async (options: CommandExecuteParameters) => {
 	const params = getCommandParams(mes, commandOptions)
 	let { title, time, date } = params
 	// prase the date and time to check if they are correct
-	if (!title || !time) return
+	if (!title || !time) return mes.reply("Usage: /schedule <title> <time> [date]")
 	if (!date) date = new Date().toISOString().split("T")[0]
 	const dateRegex = /^\d{4}-\d{2}-\d{2}$/
 	const timeRegex = /^\d{2}:\d{2}$/
@@ -66,10 +66,11 @@ const schedule = async (options: CommandExecuteParameters) => {
 	if (new Date(`${date} ${time}`).getTime() < Date.now()) return mes.reply("Invalid date or time. Game time is in the past.")
 	// if the date is more then 7 days in the future, return
 	if (new Date(`${date} ${time}`).getTime() > Date.now() + (ONE_WEEK_IN_MINUTES * 60 * 1000)) return mes.reply("Invalid date or time. Game time is more then 7 days in the future.")
+	const dateString = new Date(`${date} ${time}`)
 	const cronString = dateToCron(new Date((`${date} ${time}`).trim()))
 	// create the cronjob
 	const prisma = new PrismaClient()
-	const startMessage = await channel.send(`Game time: ${date} ${time}`)
+	const startMessage = await channel.send(`Game time: <t:${Math.floor(dateString.getTime() / 1000)}:R>`)
 	const thread = await channel.threads.create({
 		name: title,
 		autoArchiveDuration: ONE_WEEK_IN_MINUTES,
