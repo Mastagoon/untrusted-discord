@@ -23,9 +23,9 @@ const bot = new Discord.Client({ intents: ["GUILD_MESSAGES", "GUILDS", "GUILD_ME
 bot.on("ready", async (): Promise<any> => {
 	if (!bot.user) return
 	const commandManager = new CommandManager(bot)
-	const threadManager = new CronManager(bot)
+	const cronManager = new CronManager(bot)
 	await commandManager.Init()
-	await threadManager.Init()
+	await cronManager.Init()
 	Log.info(`Logged in as ${bot.user.tag}`)
 	if (bot.user.username != config.bot_name)
 		bot.user.setUsername(config.bot_name)
