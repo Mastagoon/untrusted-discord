@@ -65,7 +65,7 @@ const schedule = async (options: CommandExecuteParameters) => {
 	if (!timeRegex.test(time)) return mes.reply("Invalid time format")
 	if (new Date(`${date} ${time}`).getTime() < Date.now()) return mes.reply("Invalid date or time. Game time is in the past.")
 	// if the date is more then 7 days in the future, return
-	if (new Date(`${date} ${time}`).getTime() > Date.now() + (ONE_WEEK_IN_MINUTES * 60 * 1000)) return mes.reply("Invalid date or time. Game time is more then 7 days in the future.")
+	if (new Date(`${date} ${time}`).getTime() - Date.now() > (ONE_WEEK_IN_MINUTES * 60 * 1000)) return mes.reply("Invalid date or time. Game time is more then 7 days in the future.")
 	const dateString = new Date(`${date} ${time}`)
 	const cronString = dateToCron(new Date((`${date} ${time}`).trim()))
 	// create the cronjob
