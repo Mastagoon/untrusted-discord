@@ -68,12 +68,12 @@ bot.on("messageCreate", async (msg): Promise<any> => {
 		if (!member) return msg.reply({ content: 'You are not in the untrusted guild!' })
 		const code = args[0]
 		const isCodeValid = await (await fetch({
-			url: config.supporter_role_url, method: "POST",
+			url: config.supporter_role_url(), method: "POST",
 			// @ts-ignore
 			body: JSON.stringify({ code })
 		})).json()
 		if (!isCodeValid) return msg.reply({ content: 'Invalid supporter code!' })
-		const role = msg.guild?.roles.cache.find(r => r.id === config.supporter_role_url)
+		const role = msg.guild?.roles.cache.find(r => r.id === config.supporter_role_url())
 		if (!role) return msg.reply({ content: 'Supporter role not found!' })
 		await member.roles.add(role)
 		return msg.reply({ content: 'You have been given the supporter role!' })

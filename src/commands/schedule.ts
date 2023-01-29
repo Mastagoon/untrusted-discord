@@ -42,8 +42,12 @@ export const scheduleThreadPing = async (prisma: PrismaClient<Prisma.PrismaClien
 		// discordjs types are wrong. 
 		const members = await discordThread.members.fetch(undefined) as unknown as Collection<string, ThreadMember>
 		const mentions = members.map((m) => `<@${m.user?.id}>`).join("\n")
-		await discordThread.send(`Game time! ${mentions}\nThread will close in 1 hour.`)
-		discordThread.autoArchiveDuration = 60
+		await discordThread.send(`Game time! ${mentions}\nThread will close in approximately 1 hour.`)
+		// schedule thread to close in 1 hour
+		cron.schedule("0 0 * * * *", async () => {
+			await discordThread.setArchived(true)
+			await discordThread.setLocked(true)
+		})
 	})
 }
 
