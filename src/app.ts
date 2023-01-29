@@ -66,6 +66,8 @@ bot.on("messageCreate", async (msg): Promise<any> => {
 		const untrustedGuild = await bot.guilds.fetch(config.untrusted_guild_id)
 		const member = untrustedGuild.members.cache.find(m => m.id === msg.author.id)
 		if (!member) return msg.reply({ content: 'You are not in the untrusted guild!' })
+		if (member.roles.cache.find(r => r.id === config.supporter_role_url()))
+			return msg.reply({ content: 'You already have the supporter role!' })
 		const code = args[0]
 		const isCodeValid = await (await fetch({
 			url: config.supporter_role_url(), method: "POST",
