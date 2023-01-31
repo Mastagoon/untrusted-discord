@@ -1,4 +1,4 @@
-import Discord, { Collection, Interaction } from "discord.js"
+import Discord, { Collection, Interaction, Message } from "discord.js"
 import dotenv from "dotenv"
 import { Command } from "./lib/Command"
 import config from "./lib/config"
@@ -7,6 +7,7 @@ import Log from "./utils/logger"
 import path from "path"
 import getPlayerCount from "./utils/getPlayerCount"
 import CronManager from "./lib/cronManager"
+import supporter from "./direct_commands/supporter"
 
 dotenv.config({ path: path.join(__dirname, "..", ".env") })
 declare module "discord.js" {
@@ -60,26 +61,9 @@ bot.on("messageCreate", async (msg): Promise<any> => {
 	if (!msg.content.startsWith(config.prefix)) return
 	const args = msg.content.slice(config.prefix.length).split(/ +/)
 	const commandName = args.shift()
-	if (commandName == 'supporter') {
-		if (msg.channel.type !== 'DM') return msg.reply({ content: 'This command can only be used in DMs!' })
-		if (!args[0]) return msg.reply({ content: 'Please provide a supporter code!' })
-		const untrustedGuild = await bot.guilds.fetch(config.untrusted_guild_id)
-		const member = untrustedGuild.members.cache.find(m => m.id === msg.author.id)
-		if (!member) return msg.reply({ content: 'You are not in the untrusted guild!' })
-		if (member.roles.cache.find(r => r.id === config.supporter_role_url()))
-			return msg.reply({ content: 'You already have the supporter role!' })
-		const code = args[0]
-		const isCodeValid = await (await fetch({
-			url: config.supporter_role_url(), method: "POST",
-			// @ts-ignore
-			body: JSON.stringify({ code })
-		})).json()
-		if (!isCodeValid) return msg.reply({ content: 'Invalid supporter code!' })
-		const role = msg.guild?.roles.cache.find(r => r.id === config.supporter_role_url())
-		if (!role) return msg.reply({ content: 'Supporter role not found!' })
-		await member.roles.add(role)
-		return msg.reply({ content: 'You have been given the supporter role!' })
-	}
+	if (commandName == 'supporter')
+		return supporter(msg, args, bot)
+
 	const command = bot.commands.get(
 		// lol
 		bot.aliases.get(commandName ?? "") ?? commandName ?? ""
@@ -96,3 +80,4 @@ bot.on("messageCreate", async (msg): Promise<any> => {
 bot.login(process.env.BOT_TOKEN)
 
 export default bot
+
