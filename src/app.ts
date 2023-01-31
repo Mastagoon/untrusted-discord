@@ -18,7 +18,7 @@ declare module "discord.js" {
 
 const ONE_MINUTE = 1000 * 60
 
-const bot = new Discord.Client({ intents: ["GUILD_MESSAGES", "GUILDS", "GUILD_MEMBERS"] })
+const bot = new Discord.Client({ intents: ["GUILD_MESSAGES", "GUILDS", "GUILD_MEMBERS", "DIRECT_MESSAGES"], partials: ["CHANNEL"] })
 
 bot.on("ready", async (): Promise<any> => {
 	if (!bot.user) return
