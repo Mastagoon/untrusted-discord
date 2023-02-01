@@ -1,4 +1,4 @@
-import Discord, { Collection, Interaction, Message } from "discord.js"
+import Discord, { Collection, Interaction } from "discord.js"
 import dotenv from "dotenv"
 import { Command } from "./lib/Command"
 import config from "./lib/config"
