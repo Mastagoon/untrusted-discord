@@ -4,14 +4,13 @@ import Log from "../utils/logger"
 
 const supporter = async (msg: Message, args: string[], bot: Client): Promise<Message<boolean>> => {
 	if (msg.channel.type !== 'DM') return msg.reply({ content: 'This command can only be used in DMs!' })
-	if (!args[0]) return msg.reply({ content: 'Please provide a supporter code!' })
-	if (!args[1]) return msg.reply({ content: 'Please provide your in-game nickname!' })
+	if (args.length < 2) return msg.reply({ content: 'Invalid format, please use !supporter <ign> <supporter_code>' })
 	const untrustedGuild = await bot.guilds.fetch(config.untrusted_guild_id)
 	const member = await untrustedGuild.members.fetch(msg.author.id)
 	if (!member) return msg.reply({ content: 'You are not in the untrusted guild!' })
 	if (member.roles.cache.find(r => r.id === config.supporter_role_url()))
 		return msg.reply({ content: 'You already have the supporter role!' })
-	const [code, ign] = args
+	const [ign, code] = args
 	try {
 		const url = config.supporter_role_url()
 		console.log(url)
