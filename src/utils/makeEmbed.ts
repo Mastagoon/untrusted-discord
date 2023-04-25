@@ -1,5 +1,5 @@
-import { MessageEmbed, MessageEmbedOptions } from "discord.js"
+import { APIEmbed, EmbedBuilder } from "discord.js"
 
-export default (args: MessageEmbedOptions) => {
-    return new MessageEmbed(args)
+export default (args: APIEmbed): APIEmbed => {
+  return new EmbedBuilder(args).data
 }

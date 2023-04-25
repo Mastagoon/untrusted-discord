@@ -1,9 +1,9 @@
-import { Client, Message } from "discord.js"
+import { ChannelType, Client, Message } from "discord.js"
 import config from "../lib/config"
 import Log from "../utils/logger"
 
 const supporter = async (msg: Message, args: string[], bot: Client): Promise<Message<boolean>> => {
-  if (msg.channel.type !== 'DM') return msg.reply({ content: 'This command can only be used in DMs!' })
+  if (msg.channel.type !== ChannelType.DM) return msg.reply({ content: 'This command can only be used in DMs!' })
   if (args.length < 2) return msg.reply({ content: 'Invalid format, please use !supporter <ign> <supporter_code>' })
   const untrustedGuild = await bot.guilds.fetch(config.untrusted_guild_id)
   const member = await untrustedGuild.members.fetch(msg.author.id)
