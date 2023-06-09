@@ -74,7 +74,7 @@ const schedule = async (options: CommandExecuteParameters) => {
 	const cronString = dateToCron(new Date((`${date} ${time}`).trim()))
 	// create the cronjob
 	const prisma = new PrismaClient()
-	const startMessage = await channel.send(`Game time: <t:${Math.floor(dateString.getTime() / 1000)}:F>`)
+	const startMessage = await channel.send(`Game time: <t:${Math.floor(dateString.getTime() / 1000)}:F> || <t:${Math.floor(dateString.getTime() / 1000)}:R>`)
 	const thread = await channel.threads.create({
 		name: title,
 		autoArchiveDuration: ONE_WEEK_IN_MINUTES,
