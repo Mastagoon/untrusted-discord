@@ -29,6 +29,8 @@ const commandOptions: CommandArg[] = [
 	},
 ]
 
+const cooldown = 0;
+
 export const scheduleThreadPing = async (prisma: PrismaClient<Prisma.PrismaClientOptions, never, Prisma.RejectOnNotFound | Prisma.RejectPerOperation | undefined>, cronString: string, channel: TextChannel) => {
 	cron.schedule(cronString, async () => {
 		Log.debug("cron job ran...")
@@ -89,5 +91,6 @@ export default new Command(
 	"Start a thread in #schedule-a-game",
 	["sch", "schedule"],
 	schedule,
-	commandOptions
+	cooldown,
+	commandOptions //Should be renamed to options -- Not my code
 )

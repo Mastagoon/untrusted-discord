@@ -11,6 +11,7 @@ module.exports = {
     description: "Shows a list of all available commands.",
     usage: config.prefix+"help",
     aliases: "h",
+    cooldown:0,
     execute(message, args) {
         const res = new Discord.MessageEmbed()
             .setColor("#EBCBD0")

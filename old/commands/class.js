@@ -13,6 +13,7 @@ module.exports = {
     description: "Use this command to get information about a certain class.",
     usage: "`" + config.prefix + "class <class name>`",
     aliases: "classinfo,ci,cl",
+    cooldown:0,
     execute: async(message, args) => {
         if (!args[0])
             return message.reply("Usage `" + config.prefix + "class <class name>`")

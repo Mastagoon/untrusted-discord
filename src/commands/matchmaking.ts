@@ -3,6 +3,8 @@ import { CommandArg, CommandExecuteParameters } from "../types"
 //import bot from "../app" //Need bot/discord client to find the role.
 const options: CommandArg[] = []
 
+const cooldown = 60;
+
 const matchmaking = async (options: CommandExecuteParameters) => {
   const { type, message, interaction } = options
   const isSlash = type === "interaction"
@@ -15,5 +17,6 @@ export default new Command(
   "Use this command to ping @matchmaking",
   ["mm", "pingmm", "ping"],
   matchmaking,
+  cooldown,
   options
 )

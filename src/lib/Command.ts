@@ -9,14 +9,16 @@ export class Command {
     execute: (options: CommandExecuteParameters) => void
     data: SlashCommandBuilder
     args: CommandArg[] = []
+    cooldown?: Number //Seconds
 
     constructor(name: string, description: string, aliases: string[], execute: (options: CommandExecuteParameters) => void,
-        options?: CommandArg[]) {
+    cooldown: Number, options?: CommandArg[]) {
         Log.debug(`Adding command: ${name}`)
         this.name = name
         this.description = description
         this.aliases = aliases
         this.execute = execute
+        this.cooldown = cooldown
         this.data = new SlashCommandBuilder().setName(this.name).setDescription(this.description)
         if (options) {
             for (const opt of options) {

@@ -4,6 +4,8 @@ import { CommandArg, CommandExecuteParameters } from "../types"
 
 const options: CommandArg[] = []
 
+const cooldown = 0;
+
 const github = async (options: CommandExecuteParameters) => {
   const { type, message, interaction } = options
   const isSlash = type === "interaction"
@@ -15,5 +17,6 @@ export default new Command(
   "Check out Untrusted Bot's Github repo.",
   ["gh", "repo", "code"],
   github,
+  cooldown,
   options
 )

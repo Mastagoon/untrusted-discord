@@ -11,6 +11,7 @@ module.exports = {
     description: "Use this command to get information about a skill",
     usage: "`" + config.prefix + "skill <skill name>`",
     aliases: 'sk,skillinfo,si',
+    cooldown: 0,
     execute: async(message, args) => {
         if (!args[0]) return message.reply("Usage `" + config.prefix + "skill <skill name>`")
         const skillInfo = skillsData.find(sk => sk.name.toLowerCase() == (args.join(" ").toLowerCase())) ||

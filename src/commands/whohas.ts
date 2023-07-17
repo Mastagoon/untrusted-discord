@@ -11,6 +11,8 @@ const options: CommandArg[] = [
   }
 ]
 
+const cooldown = 0;
+
 const whoHas = async (options: CommandExecuteParameters) => {
   const { args, type, message, interaction } = options
   const isSlash = type === 'interaction'
@@ -21,6 +23,11 @@ const whoHas = async (options: CommandExecuteParameters) => {
   return isSlash ? interaction?.reply({ embeds: [embed] }) : message?.reply({ embeds: [embed] })
 }
 
-export default new Command('whohas', "Use this command to learn which classes has a certain skill",
-  ['wh', 'who'], whoHas, options
+export default new Command(
+  'whohas', 
+  "Use this command to learn which classes has a certain skill",
+  ['wh', 'who'],
+  whoHas, 
+  cooldown, 
+  options
 )

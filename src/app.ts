@@ -64,6 +64,7 @@ bot.on("interactionCreate", async (ir: Interaction) => {
 })
 
 bot.on("messageCreate", async (msg): Promise<any> => {
+  timestamps: Number
   console.log(msg.content)
   if (!msg.content.startsWith(config.prefix)) return
   const args = msg.content.slice(config.prefix.length).split(/ +/)
@@ -76,6 +77,7 @@ bot.on("messageCreate", async (msg): Promise<any> => {
     bot.aliases.get(commandName ?? "") ?? commandName ?? ""
   )
   if (!command) return
+
   try {
     command.execute({ message: msg, args, type: "message" })
   } catch (err: any) {

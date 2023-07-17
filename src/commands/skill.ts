@@ -16,6 +16,7 @@ const options: CommandArg[] = [
     isRequired: true
   }
 ]
+const cooldown = 0;
 
 export const getClassesWithThisSkill = (skill: Skill, user: User, paginated = false): APIEmbed => {
   const list: EmbedField[] = []
@@ -116,5 +117,5 @@ const skill = async (options: CommandExecuteParameters) => {
 }
 
 export default new Command('skill', 'Use this command to get information about a skill',
-  ['sk', 'skillinfo', 'si'], skill, options
+  ['sk', 'skillinfo', 'si'], skill, cooldown, options
 )
