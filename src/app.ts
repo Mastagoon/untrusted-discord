@@ -50,15 +50,15 @@ bot.on("ready", async (): Promise<any> => {
 })
 
 bot.on("interactionCreate", async (ir: Interaction) => {
-  if (!ir.isCommand()) return
-  const command = bot.commands.get(ir.commandName)
-  if (!command) return
+  if (!ir.isCommand()) return;
+  const command = bot.commands.get(ir.commandName);
+  if (!command) return;
   if (!cooldowns.has(command)) {
     cooldowns.set(command, new Discord.Collection());
   }
 
   const now = Date.now();
-  const timestamps:any = cooldowns.get(command);
+  const timestamps:any = cooldowns.get(command); //Couldn't find declaration type. Marked as 'any'
   const cooldownAmount = 1 * 60 * 1000;
 
   if (timestamps.has(ir.user.id)) {
@@ -74,10 +74,10 @@ bot.on("interactionCreate", async (ir: Interaction) => {
   timestamps.set(ir.user.id, now);
   setTimeout(() => timestamps.delete(ir.user.id), cooldownAmount);
   try {
-    command.execute({ type: "interaction", interaction: ir })
+    command.execute({ type: "interaction", interaction: ir });
   } catch (err: any) {
-    console.log("err: ", err.message)
-    Log.error(`interactionCreateErr: ${err.message}`)
+    console.log("err: ", err.message);
+    Log.error(`interactionCreateErr: ${err.message}`);
     await ir.reply({
       content: "There was an error while executing this command!",
       ephemeral: true,
@@ -86,26 +86,20 @@ bot.on("interactionCreate", async (ir: Interaction) => {
 })
 
 bot.on("messageCreate", async (msg): Promise<any> => {
-  timestamps: Number
-  console.log(msg.content)
+  console.log(msg.content); //This does track content recieved by the bot, even itself. Only the content.
   if (!msg.content.startsWith(config.prefix)) return
   const args = msg.content.slice(config.prefix.length).split(/ +/)
   const commandName = args.shift()
-  if (commandName == 'supporter')
-    return supporter(msg, args, bot)
-
-  const command = bot.commands.get(
-    // lol
-    bot.aliases.get(commandName ?? "") ?? commandName ?? ""
-  )
-  if (!command) return
+  if (commandName == 'supporter') return supporter(msg, args, bot);
+  const command = bot.commands.get(bot.aliases.get(commandName ?? "") ?? commandName ?? "") //lol //Omg that must suck.
+  if (!command) return;
 
   if (!cooldowns.has(command)) {
     cooldowns.set(command, new Discord.Collection());
   }
 
   const now = Date.now();
-  const timestamps:any = cooldowns.get(command);
+  const timestamps:any = cooldowns.get(command); //Couldn't find declaration type. Marked as 'any'
   const cooldownAmount = 1 * 60 * 1000;
 
   if (timestamps.has(msg.author.id)) {
@@ -121,14 +115,14 @@ bot.on("messageCreate", async (msg): Promise<any> => {
   setTimeout(() => timestamps.delete(msg.author.id), cooldownAmount);
 
   try {
-    command.execute({ message: msg, args, type: "message" })
+    command.execute({ message: msg, args, type: "message" });
   } catch (err: any) {
-    Log.error(`messageCreateEvent: ${err.message}`)
-    msg.reply({ content: "There was an error while executing this command!" })
+    Log.error(`messageCreateEvent: ${err.message}`);
+    msg.reply({ content: "There was an error while executing this command!" });
   }
 })
 
-bot.login(process.env.BOT_TOKEN)
+bot.login(process.env.BOT_TOKEN);
 
 export default bot
 

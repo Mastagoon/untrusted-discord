@@ -50,4 +50,11 @@ const stats = async (options: CommandExecuteParameters) => {
   return isSlash ? interaction?.reply({ embeds: [embed] }) : message?.reply({ embeds: [embed] })
 }
 
-export default new Command('stats', 'Use to get the stats of a player', ['stat', 'st'], stats, cooldown, options)
+export default new Command(
+  'stats', 
+  'Use to get the stats of a player', 
+  ['stat', 'st'], 
+  stats, 
+  cooldown, 
+  options
+  )
