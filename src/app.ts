@@ -9,6 +9,8 @@ import getPlayerCount from "./utils/getPlayerCount"
 import CronManager from "./lib/cronManager"
 import supporter from "./direct_commands/supporter"
 
+const cooldowns = new Discord.Collection();
+
 dotenv.config({ path: path.join(__dirname, "..", ".env") })
 declare module "discord.js" {
   export interface Client {
@@ -51,6 +53,26 @@ bot.on("interactionCreate", async (ir: Interaction) => {
   if (!ir.isCommand()) return
   const command = bot.commands.get(ir.commandName)
   if (!command) return
+  if (!cooldowns.has(command)) {
+    cooldowns.set(command, new Discord.Collection());
+  }
+
+  const now = Date.now();
+  const timestamps:any = cooldowns.get(command);
+  const cooldownAmount = 1 * 60 * 1000;
+
+  if (timestamps.has(ir.user.id)) {
+    const expirationTime = timestamps.get(ir.user.id) + cooldownAmount;
+
+    if (now < expirationTime) {
+      const timeLeft = (expirationTime - now) / 1000;
+      await ir.reply(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command}\` command.`);
+      return;
+    }
+  }
+
+  timestamps.set(ir.user.id, now);
+  setTimeout(() => timestamps.delete(ir.user.id), cooldownAmount);
   try {
     command.execute({ type: "interaction", interaction: ir })
   } catch (err: any) {
@@ -77,6 +99,26 @@ bot.on("messageCreate", async (msg): Promise<any> => {
     bot.aliases.get(commandName ?? "") ?? commandName ?? ""
   )
   if (!command) return
+
+  if (!cooldowns.has(command)) {
+    cooldowns.set(command, new Discord.Collection());
+  }
+
+  const now = Date.now();
+  const timestamps:any = cooldowns.get(command);
+  const cooldownAmount = 1 * 60 * 1000;
+
+  if (timestamps.has(msg.author.id)) {
+    const expirationTime = timestamps.get(msg.author.id) + cooldownAmount;
+
+    if (now < expirationTime) {
+      const timeLeft = (expirationTime - now) / 1000;
+      return msg.reply(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command}\` command.`);
+    }
+  }
+
+  timestamps.set(msg.author.id, now);
+  setTimeout(() => timestamps.delete(msg.author.id), cooldownAmount);
 
   try {
     command.execute({ message: msg, args, type: "message" })
