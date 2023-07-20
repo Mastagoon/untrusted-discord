@@ -9,10 +9,10 @@ export class Command {
     execute: (options: CommandExecuteParameters) => void
     data: SlashCommandBuilder
     args: CommandArg[] = []
-    cooldown?: Number //Seconds
+    cooldown: number //Seconds
 
     constructor(name: string, description: string, aliases: string[], execute: (options: CommandExecuteParameters) => void,
-    cooldown: Number, options?: CommandArg[]) {
+    cooldown: number, options?: CommandArg[]) {
         Log.debug(`Adding command: ${name}`)
         this.name = name
         this.description = description
