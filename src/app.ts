@@ -85,7 +85,6 @@ bot.on("interactionCreate", async (ir: Interaction) => {
 })
 
 bot.on("messageCreate", async (msg): Promise<any> => {
-  console.log(msg.content); //This does track content recieved by the bot, even itself. Only the content.
   if (!msg.content.startsWith(config.prefix)) return
   const args = msg.content.slice(config.prefix.length).split(/ +/)
   const commandName = args.shift()
@@ -93,16 +92,16 @@ bot.on("messageCreate", async (msg): Promise<any> => {
   const command = bot.commands.get(bot.aliases.get(commandName ?? "") ?? commandName ?? "") //lol //Omg that must suck.
   if (!command) return;
 
-  if (!cooldowns.has(command.name)) {
+  if (!cooldowns.has(command.name))
     cooldowns.set(command.name, new Discord.Collection());
-  }
 
   const now = Date.now();
-  const timestamps: any = cooldowns.get(command.name); //Couldn't find declaration type. Marked as 'any'
-  const COOLDOWN_DURATION = command.cooldown;
+  const timestamps = cooldowns.get(command.name) ?? new Collection(); //Couldn't find declaration type. Marked as 'any'
+  const COOLDOWN_DURATION = command.cooldown * 1000;
+  console.log(timestamps)
 
   if (timestamps.has(msg.author.id)) {
-    const expirationTime = timestamps.get(msg.author.id) + COOLDOWN_DURATION;
+    const expirationTime = timestamps.get(msg.author.id)! + COOLDOWN_DURATION;
 
     if (now < expirationTime) {
       const timeLeft = (expirationTime - now) / 1000;
@@ -111,7 +110,6 @@ bot.on("messageCreate", async (msg): Promise<any> => {
   }
 
   timestamps.set(msg.author.id, now);
-  setTimeout(() => timestamps.delete(msg.author.id), COOLDOWN_DURATION);
 
   try {
     command.execute({ message: msg, args, type: "message" });
