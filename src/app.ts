@@ -58,7 +58,7 @@ bot.on("interactionCreate", async (ir: Interaction) => {
   }
 
   const now = Date.now();
-  const timestamps:any = cooldowns.get(command); //Couldn't find declaration type. Marked as 'any'
+  const timestamps: any = cooldowns.get(command); //Couldn't find declaration type. Marked as 'any'
   const COOLDOWN_DURATION = command.cooldown;
 
   if (timestamps.has(ir.user.id)) {
@@ -72,7 +72,6 @@ bot.on("interactionCreate", async (ir: Interaction) => {
   }
 
   timestamps.set(ir.user.id, now);
-  setTimeout(() => timestamps.delete(ir.user.id), COOLDOWN_DURATION);
   try {
     command.execute({ type: "interaction", interaction: ir });
   } catch (err: any) {
@@ -99,7 +98,7 @@ bot.on("messageCreate", async (msg): Promise<any> => {
   }
 
   const now = Date.now();
-  const timestamps:any = cooldowns.get(command); //Couldn't find declaration type. Marked as 'any'
+  const timestamps: any = cooldowns.get(command); //Couldn't find declaration type. Marked as 'any'
   const COOLDOWN_DURATION = command.cooldown;
 
   if (timestamps.has(msg.author.id)) {
