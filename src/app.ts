@@ -9,7 +9,7 @@ import getPlayerCount from "./utils/getPlayerCount"
 import CronManager from "./lib/cronManager"
 import supporter from "./direct_commands/supporter"
 
-const cooldowns = new Discord.Collection();
+const cooldowns = new Discord.Collection<string, Collection<string, number>>();
 
 dotenv.config({ path: path.join(__dirname, "..", ".env") })
 declare module "discord.js" {
@@ -53,16 +53,16 @@ bot.on("interactionCreate", async (ir: Interaction) => {
   if (!ir.isCommand()) return;
   const command = bot.commands.get(ir.commandName);
   if (!command) return;
-  if (!cooldowns.has(command)) {
-    cooldowns.set(command, new Discord.Collection());
-  }
+  if (!cooldowns.has(command.name))
+    cooldowns.set(command.name, new Collection());
+
 
   const now = Date.now();
-  const timestamps: any = cooldowns.get(command); //Couldn't find declaration type. Marked as 'any'
+  const timestamps = cooldowns.get(command.name) ?? new Collection(); //Couldn't find declaration type. Marked as 'any'
   const COOLDOWN_DURATION = command.cooldown;
 
   if (timestamps.has(ir.user.id)) {
-    const expirationTime = timestamps.get(ir.user.id) + COOLDOWN_DURATION;
+    const expirationTime = timestamps.get(ir.user.id)! + COOLDOWN_DURATION;
 
     if (now < expirationTime) {
       const timeLeft = (expirationTime - now) / 1000;
@@ -93,12 +93,12 @@ bot.on("messageCreate", async (msg): Promise<any> => {
   const command = bot.commands.get(bot.aliases.get(commandName ?? "") ?? commandName ?? "") //lol //Omg that must suck.
   if (!command) return;
 
-  if (!cooldowns.has(command)) {
-    cooldowns.set(command, new Discord.Collection());
+  if (!cooldowns.has(command.name)) {
+    cooldowns.set(command.name, new Discord.Collection());
   }
 
   const now = Date.now();
-  const timestamps: any = cooldowns.get(command); //Couldn't find declaration type. Marked as 'any'
+  const timestamps: any = cooldowns.get(command.name); //Couldn't find declaration type. Marked as 'any'
   const COOLDOWN_DURATION = command.cooldown;
 
   if (timestamps.has(msg.author.id)) {
