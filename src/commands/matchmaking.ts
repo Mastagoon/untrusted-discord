@@ -10,7 +10,9 @@ const matchmaking = async (options: CommandExecuteParameters) => {
   const { type, message, interaction } = options
   const isSlash = type === "interaction"
   var response = `<@&${config.matchmaking_role_id}>!`;
-  return isSlash ? interaction?.reply((response + ` Pinged by ${interaction.user.username}`)) : message?.reply((response + ` Pinged by ${message.author.username}`));
+  return isSlash ? interaction?.reply((response + ` Pinged by ${interaction.user.displayName}`)) : message?.reply((response + ` Pinged by ${message.author.displayName}`));
+  //.displayName: https://old.discordjs.dev/#/docs/discord.js/main/class/User?scrollTo=displayName
+  // Apparently doesn't exist acording to ts :shrug:
   //Discord's interaction is .user and message is .author and is quite annoying.
 }
 export default new Command(
