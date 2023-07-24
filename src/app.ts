@@ -66,7 +66,7 @@ bot.on("interactionCreate", async (ir: Interaction) => {
 
     if (now < expirationTime) {
       const timeLeft = (expirationTime - now) / 1000;
-      await ir.reply(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+      await ir.reply({content:`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`, ephemeral: true});
       return;
     }
   }
