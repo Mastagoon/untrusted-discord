@@ -59,7 +59,7 @@ bot.on("interactionCreate", async (ir: Interaction) => {
 
   const now = Date.now();
   const timestamps = cooldowns.get(command.name) ?? new Collection(); //Couldn't find declaration type. Marked as 'any'
-  const COOLDOWN_DURATION = command.cooldown;
+  const COOLDOWN_DURATION = command.cooldown * 1000;
 
   if (timestamps.has(ir.user.id)) {
     const expirationTime = timestamps.get(ir.user.id)! + COOLDOWN_DURATION;
