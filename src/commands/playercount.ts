@@ -3,6 +3,7 @@ import { CommandArg, CommandExecuteParameters } from "../types"
 import getPlayerCount from "../utils/getPlayerCount"
 
 const options: CommandArg[] = []
+const cooldown = 5;
 
 const playerCount = async (options: CommandExecuteParameters) => {
   const { type, message, interaction } = options
@@ -43,5 +44,6 @@ export default new Command(
   "Use this command to check how many players are currently in-game.",
   ["pc", "online", "players", "operatives"],
   playerCount,
+  cooldown,
   options
 )

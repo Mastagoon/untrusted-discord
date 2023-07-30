@@ -10,6 +10,7 @@ module.exports = {
     description: "Use this command to learn which classes has a certain skill",
     usage: "`" + config.prefix + "whohas <skill name>`",
     aliases: 'wh,who',
+    cooldown: 0,
     execute: async(message, args) => {
         if (Math.floor(Math.random() * 100) > 98)
             messsage.reply("Everyone asks me !whohas. but nobody asks me how are you untrusted bot.....")

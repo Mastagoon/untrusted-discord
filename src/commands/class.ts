@@ -30,6 +30,8 @@ const options: CommandArg[] = [
   },
 ]
 
+const cooldown = 0;
+
 const skillDescriptionEmbedField = (sk: string) => {
   const skill = findSkill(sk)
   return {
@@ -199,6 +201,7 @@ export default new Command(
   "Use this command to get information about a certain class.",
   ["classinfo", "cl", "ci"],
   classCommand,
+  cooldown,
   options
 )
 
