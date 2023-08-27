@@ -31,7 +31,7 @@ export default {
   supporter_role_url: (server: string = 'eu01') => `https://${server}.playuntrusted.com/publicAPI/publicAPI.php?request=getSupporterRole`,
   supporter_role_id: "1068515356789977169",
   untrusted_guild_id: "777637565243064341",
-  schedule_game_channel_id: "777955768456183828",
+  schedule_game_channel_id: "763446129856741376",
   repo_url: `https://github.com/mastagoon/untrusted-discord`,
   matchmaking_role_id: "1130780519827767319"
 }
