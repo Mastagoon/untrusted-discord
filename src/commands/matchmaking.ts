@@ -4,6 +4,12 @@ import { CommandArg, CommandExecuteParameters } from "../types"
 import getPlayerCount from "../utils/getPlayerCount";
 const options: CommandArg[] = [];
 
+/*
+allowedMentions: { parse: ['users', 'roles'], repliedUser: true } 
+*/
+
+//Discord.js requires objects to send more than JUST content.
+
 const cooldown = 60;
 
 const matchmaking = async (options: CommandExecuteParameters) => {
@@ -15,8 +21,8 @@ const matchmaking = async (options: CommandExecuteParameters) => {
 
   if (!playerCount || playerCount == null) { //If "", 0, etc || null return default response
     return isSlash ? 
-    interaction?.reply((matchmakingPing + ` Pinged by <@${interaction.user.id}>`)) 
-    : message?.reply((matchmakingPing + ` Pinged by <@${message.author.id}>`));
+    interaction?.reply({"content":(matchmakingPing + ` Pinged by <@${interaction.user.id}>`), "allowedMentions": { parse: ['users', 'roles'], repliedUser: true } }) 
+    : message?.reply({"content":(matchmakingPing + ` Pinged by <@${message.author.id}>`), "allowedMentions": { parse: ['users', 'roles'], repliedUser: true } });
   }
   
   //If we are here, we have not had an issue yet.
@@ -42,8 +48,8 @@ const matchmaking = async (options: CommandExecuteParameters) => {
   //Since BOTH return string outputs, we can safely assume they work properly, and can format a response.
   // response = playerCountText + response; 
   return isSlash ? 
-  interaction?.reply((matchmakingPing + ` Pinged by <@${interaction.user.id}>\n` + playerCountText)) 
-  : message?.reply((matchmakingPing + ` Pinged by <@${message.author.id}>\n` + playerCountText));
+  interaction?.reply({"content":(matchmakingPing + ` Pinged by <@${interaction.user.id}>\n` + playerCountText), "allowedMentions": { parse: ['users', 'roles'], repliedUser: true } }) 
+  : message?.reply({"content":(matchmakingPing + ` Pinged by <@${message.author.id}>\n` + playerCountText), "allowedMentions": { parse: ['users', 'roles'], repliedUser: true } });
 }
 export default new Command(
   "matchmaking",
