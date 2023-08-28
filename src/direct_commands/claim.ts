@@ -8,7 +8,7 @@ const claim = async (msg: Message, args: string[], bot: Client): Promise<Message
   const untrustedGuild = await bot.guilds.fetch(config.untrusted_guild_id);
   const member = await untrustedGuild.members.fetch(msg.author.id)
   if (!member) return msg.reply({ content: 'You are not in the untrusted guild!' })
-  if (member.roles.cache.find(r => r.id === config.image_role_url()))
+  if (member.roles.cache.find(r => r.id === config.image_role_id))
     return msg.reply({ content: 'You already have the <role> role!' })
   const [ign, code] = args;
   try {
