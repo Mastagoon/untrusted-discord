@@ -5,14 +5,13 @@ import bot from "../app";
 const options: CommandArg[] = []
 const cooldown = 5;
 
-const playerCount = async (options: CommandExecuteParameters) => {
+const help = async (options: CommandExecuteParameters) => {
   const { type, message, interaction } = options
   const isSlash = type === "interaction";
-  var list = ["class", "github", "help", "matchmaking", "playercount", "schedule", "skill", "stats", "whohas"];
+  var list = bot.commands;
   var response:string = "!<command> - description\n";
   for (var command of list) {
-    // @ts-ignore
-    var gotCommand = bot.commands.get(command);
+    var gotCommand = bot.commands.get(command[0]);
     var commandName = gotCommand?.name; 
     var commandDescription = gotCommand?.description;
     response += "!"
@@ -27,7 +26,7 @@ export default new Command(
   "help",
   "Use this command to get help with the commands.",
   ["commands", "cmds", "cmd", "command"],
-  playerCount,
+  help,
   cooldown,
   options
 )
