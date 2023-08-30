@@ -118,7 +118,7 @@ const skill = async (options: CommandExecuteParameters) => {
 
 export default new Command(
   'skill', 
-  'Use this command to get information about a skill',
+  'Use this command to get information about a skill.',
   ['sk', 'skillinfo', 'si'], 
   skill, 
   cooldown, 

@@ -53,7 +53,7 @@ const matchmaking = async (options: CommandExecuteParameters) => {
 }
 export default new Command(
   "matchmaking",
-  "Use this command to ping @matchmaking",
+  "Use this command to ping @matchmaking.",
   ["mm", "pingmm", "ping"],
   matchmaking,
   cooldown,

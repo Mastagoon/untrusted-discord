@@ -86,7 +86,7 @@ const schedule = async ({ message, interaction }: CommandExecuteParameters) => {
 }
 export default new Command(
   "schedule",
-  "Start a thread in #schedule-a-game",
+  "Start a thread in #schedule-a-game.",
   ["sch", "schedule"],
   schedule,
   cooldown,
