@@ -1,7 +1,7 @@
 {
   "name": "untrusted-discord",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/app.js",
   "repository": "https://github.com/Mastagoon/untrusted-discord",
   "author": "= <inzilagiway@gmail.com>",
   "license": "MIT",
