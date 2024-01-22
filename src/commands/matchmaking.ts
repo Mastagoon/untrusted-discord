@@ -27,6 +27,7 @@ const matchmaking = async (options: CommandExecuteParameters) => {
   
   //If we are here, we have not had an issue yet.
 
+  /*
   var playerCountText:string = "";
   if (typeof playerCount === "string") {
     playerCountText = `There are currently **${playerCount}.**`
@@ -45,11 +46,12 @@ const matchmaking = async (options: CommandExecuteParameters) => {
     //Removing the spaces creates left aligned text.
     playerCountText = `${operativesText}\n${lobbiesText}\n${activeGamesText}`; //Formatted
   }
+  */
   //Since BOTH return string outputs, we can safely assume they work properly, and can format a response.
   // response = playerCountText + response; 
   return isSlash ? 
-  interaction?.reply({"content":(matchmakingPing + ` Pinged by <@${interaction.user.id}>\n` + playerCountText), "allowedMentions": { parse: ['users', 'roles'], repliedUser: true } }) 
-  : message?.reply({"content":(matchmakingPing + ` Pinged by <@${message.author.id}>\n` + playerCountText), "allowedMentions": { parse: ['users', 'roles'], repliedUser: true } });
+  interaction?.reply({"content":(matchmakingPing + ` Pinged by <@${interaction.user.id}>\n`), "allowedMentions": { parse: ['users', 'roles'], repliedUser: true } }) 
+  : message?.reply({"content":(matchmakingPing + ` Pinged by <@${message.author.id}>\n`), "allowedMentions": { parse: ['users', 'roles'], repliedUser: true } });
 }
 export default new Command(
   "matchmaking",
