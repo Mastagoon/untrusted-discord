@@ -25,7 +25,7 @@ const whoHas = async (options: CommandExecuteParameters) => {
 
 export default new Command(
   'whohas', 
-  "Use this command to learn which classes has a certain skill",
+  "Use this command to learn which classes has a certain skill.",
   ['wh', 'who'],
   whoHas, 
   cooldown, 

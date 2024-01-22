@@ -8,6 +8,7 @@ import path from "path"
 import getPlayerCount from "./utils/getPlayerCount"
 import CronManager from "./lib/cronManager"
 import supporter from "./direct_commands/supporter"
+import claim from "./direct_commands/claim"
 
 const cooldowns = new Discord.Collection<string, Collection<string, number>>();
 
@@ -89,6 +90,7 @@ bot.on("messageCreate", async (msg): Promise<any> => {
   const args = msg.content.slice(config.prefix.length).split(/ +/)
   const commandName = args.shift()
   if (commandName == 'supporter') return supporter(msg, args, bot);
+  if (commandName == 'claim') return claim(msg, args, bot);
   const command = bot.commands.get(bot.aliases.get(commandName ?? "") ?? commandName ?? "") //lol //Omg that must suck.
   if (!command) return;
 

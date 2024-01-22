@@ -11,16 +11,16 @@ import {
   MessageComponentInteraction,
   MessageReplyOptions,
   User,
-} from "discord.js"
-import { Command } from "../lib/Command"
-import config from "../lib/config"
-import { CommandArg, CommandExecuteParameters, UntrustedClass } from "../types"
-import findClass from "../utils/findClass"
-import findSkill from "../utils/findSkill"
-import getClassColor from "../utils/getClassColor"
-import getIcon from "../utils/getIcon"
-import makeEmbed from "../utils/makeEmbed"
-import pagination from "../utils/pagination"
+} from "discord.js";
+import { Command } from "../lib/Command";
+import config from "../lib/config";
+import { CommandArg, CommandExecuteParameters, UntrustedClass } from "../types";
+import findClass from "../utils/findClass";
+import findSkill from "../utils/findSkill";
+import getClassColor from "../utils/getClassColor";
+import getIcon from "../utils/getIcon";
+import makeEmbed from "../utils/makeEmbed";
+import pagination from "../utils/pagination";
 
 const options: CommandArg[] = [
   {
@@ -35,7 +35,7 @@ const cooldown = 0;
 const skillDescriptionEmbedField = (sk: string) => {
   const skill = findSkill(sk)
   return {
-    name: skill?.name ?? "Unknwon Skill",
+    name: skill?.name ?? "Unknown Skill", //This was misspelt, I only noticed cause I was reusing code.
     value: skill!.description,
     inline: false,
   }

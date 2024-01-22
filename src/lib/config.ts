@@ -25,13 +25,15 @@ export default {
   // guild ID for slash command testing
   slash_command_gid: "673234977948827720",
   // api for player count
-  player_count_url: (server: string = "eu01") =>
-    `https://${server}.playuntrusted.com/publicAPI/publicAPI.php?request=getPlayerCount`,
+  player_count_url: (server: string = "eu01") => `https://${server}.playuntrusted.com/publicAPI/publicAPI.php?request=getPlayerCount`,
   // api for supporter code
   supporter_role_url: (server: string = 'eu01') => `https://${server}.playuntrusted.com/publicAPI/publicAPI.php?request=getSupporterRole`,
+  // api for image role
+  image_role_url: (server: string = 'eu01') => `https://${server}.playuntrusted.com/publicAPI/publicAPI.php?request=getImageRole`,
   supporter_role_id: "1068515356789977169",
+  image_role_id: "", //Unknown
   untrusted_guild_id: "777637565243064341",
-  schedule_game_channel_id: "777955768456183828",
+  schedule_game_channel_id: "763446129856741376",
   repo_url: `https://github.com/mastagoon/untrusted-discord`,
   matchmaking_role_id: "1130780519827767319"
 }

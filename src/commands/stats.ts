@@ -52,7 +52,7 @@ const stats = async (options: CommandExecuteParameters) => {
 
 export default new Command(
   'stats', 
-  'Use to get the stats of a player', 
+  'Use to get the stats of a player.', 
   ['stat', 'st'], 
   stats, 
   cooldown, 
