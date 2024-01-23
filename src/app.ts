@@ -12,6 +12,10 @@ import claim from "./direct_commands/claim"
 
 const cooldowns = new Discord.Collection<string, Collection<string, number>>();
 
+// Unused variable (WHILE 79-x IS COMMENTED)
+// @ts-ignore
+const channelIDs = [];
+
 dotenv.config({ path: path.join(__dirname, "..", ".env") })
 declare module "discord.js" {
   export interface Client {
@@ -72,6 +76,18 @@ bot.on("interactionCreate", async (ir: Interaction) => {
     }
   }
 
+  /*
+  // Check if current channel is in that id
+  // note: idk if ir.channel.id is the correct usage.
+  if (!channelIDs.includes(ir.channel.id)) {
+    await ir.reply({
+      content: "You can't use commands here.",
+      ephemeral: true
+    });
+    return;
+  }
+
+  */
   timestamps.set(ir.user.id, now);
   try {
     command.execute({ type: "interaction", interaction: ir });
