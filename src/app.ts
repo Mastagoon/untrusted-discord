@@ -31,7 +31,7 @@ const bot = new Discord.Client({
   partials: [Partials.Channel]
 })
 
-bot.on("ready", async (): Promise<any> => {
+bot.on("clientReady", async (): Promise<any> => {
   if (!bot.user) return
   const commandManager = new CommandManager(bot)
   const cronManager = new CronManager(bot)
@@ -51,7 +51,7 @@ bot.on("ready", async (): Promise<any> => {
 })
 
 bot.on("interactionCreate", async (ir: Interaction) => {
-  if (!ir.isCommand()) return;
+  if (!ir.isChatInputCommand()) return;
   const command = bot.commands.get(ir.commandName);
   if (!command) return;
   if (!cooldowns.has(command.name))

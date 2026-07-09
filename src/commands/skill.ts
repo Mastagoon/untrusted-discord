@@ -1,5 +1,5 @@
 // import { Command } from "discord.js"
-import { APIEmbed, APIEmbedField, ButtonInteraction, CacheType, CommandInteraction, EmbedField, InteractionCollector, InteractionReplyOptions, InteractionResponse, Message, MessageComponentInteraction, MessageReplyOptions, User } from "discord.js"
+import { APIEmbed, APIEmbedField, ButtonInteraction, CacheType, ChatInputCommandInteraction, EmbedField, InteractionCollector, InteractionReplyOptions, InteractionResponse, Message, MessageComponentInteraction, MessageReplyOptions, User } from "discord.js"
 import { Command } from "../lib/Command"
 import config from "../lib/config"
 import classData from "../data/classData.json"
@@ -65,7 +65,7 @@ const createSkillEmbeds = (skill: Skill, user: User) => {
 
 const collectorStop = (collector: InteractionCollector<ButtonInteraction>,
   embed: APIEmbed,
-  interaction?: CommandInteraction,
+  interaction?: ChatInputCommandInteraction,
   reply?: Message | InteractionResponse
 ) => {
   interaction ? interaction!.editReply({
@@ -83,7 +83,7 @@ const skill = async (options: CommandExecuteParameters) => {
   const { args, type, message, interaction } = options
   const isSlash = type == 'interaction'
   if (!isSlash && !args?.length) return message?.reply('You need to specify a skill')
-  const query = isSlash ? interaction?.options.get('skill')?.value as string : args?.join(' ')
+  const query = isSlash ? interaction?.options.getString('skill', true) : args?.join(' ')
   const skill = findSkill(query)
   if (!skill) return message ? message?.reply('Could not find a skill with that name') : interaction?.reply('Could not find a skill with that name')
   const user = isSlash ? interaction?.user : message?.author
