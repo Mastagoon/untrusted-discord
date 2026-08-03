@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from "@prisma/client"
+import { prisma } from "../lib/prisma"
 import dateToCron from "../utils/cronUtils"
 import cron from "node-cron"
 import { Collection, TextChannel, ThreadMember } from "discord.js"
@@ -31,7 +31,7 @@ const options: CommandArg[] = [
 
 const cooldown = 0;
 
-export const scheduleThreadPing = async (prisma: PrismaClient<Prisma.PrismaClientOptions, never, Prisma.RejectOnNotFound | Prisma.RejectPerOperation | undefined>, cronString: string, channel: TextChannel) => {
+export const scheduleThreadPing = async (cronString: string, channel: TextChannel) => {
   cron.schedule(cronString, async () => {
     Log.debug("cron job ran...")
     const thread = await prisma.crons.findFirst({ where: { cronString } })
@@ -73,7 +73,6 @@ const schedule = async ({ message, interaction }: CommandExecuteParameters) => {
   const dateString = new Date(`${date} ${time}`)
   const cronString = dateToCron(new Date((`${date} ${time}`).trim()))
   // create the cronjob
-  const prisma = new PrismaClient()
   const startMessage = await channel.send(`Game time: <t:${Math.floor(dateString.getTime() / 1000)}:F> || <t:${Math.floor(dateString.getTime() / 1000)}:R>`)
   const thread = await channel.threads.create({
     name: title,
@@ -81,7 +80,7 @@ const schedule = async ({ message, interaction }: CommandExecuteParameters) => {
     startMessage
   })
   await prisma.crons.create({ data: { name: title, cronString, threadId: thread.id } })
-  scheduleThreadPing(prisma, cronString, channel)
+  scheduleThreadPing(cronString, channel)
   return mes.reply("Thread created.")
 }
 export default new Command(

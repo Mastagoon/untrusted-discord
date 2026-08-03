@@ -2,7 +2,7 @@ import {
   APIEmbed,
   ButtonInteraction,
   CacheType,
-  CommandInteraction,
+  ChatInputCommandInteraction,
   EmbedField,
   InteractionCollector,
   InteractionReplyOptions,
@@ -112,7 +112,7 @@ const createClassEmbeds = (cl: UntrustedClass, user: User): APIEmbed[] => {
 const collectorStop = (
   collector: InteractionCollector<ButtonInteraction<CacheType>>,
   embed: APIEmbed,
-  interaction?: CommandInteraction,
+  interaction?: ChatInputCommandInteraction,
   reply?: Message | InteractionResponse
 ) => {
   interaction
@@ -135,7 +135,7 @@ const classCommand = async (options: CommandExecuteParameters) => {
   const user = isSlash ? interaction?.user : message?.author
   if (!user) return
   const query = isSlash
-    ? interaction!.options.get("class")?.value as string
+    ? (interaction as ChatInputCommandInteraction).options.getString("class", true)
     : args?.join(" ")
   const classData = findClass(query)
   if (!classData)

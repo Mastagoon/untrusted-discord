@@ -1,8 +1,8 @@
 import { APIEmbed } from "discord-api-types/v9"
-import { CommandInteraction, EmbedField, EmbedFooterData, Message, User } from "discord.js"
+import { ChatInputCommandInteraction, EmbedField, EmbedFooterData, Message, User } from "discord.js"
 
 export interface CommandExecuteParameters {
-    interaction?: CommandInteraction
+    interaction?: ChatInputCommandInteraction
     message?: Message
     args?: string[]
     type: 'interaction' | 'message'

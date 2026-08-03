@@ -4,27 +4,35 @@
   "main": "dist/app.js",
   "repository": "https://github.com/Mastagoon/untrusted-discord",
   "author": "= <inzilagiway@gmail.com>",
+  "contributors": [
+    "Arch <arch1010@pm.me> (https://arch1010.dev)"
+  ],
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
+    "db:push": "prisma db push",
+    "postinstall": "prisma generate",
     "dev": "node dist/app.js",
-    "build": "tsc"
+    "fullrun": "prisma db push && tsc && node dist/app.js"
   },
   "dependencies": {
-    "@discordjs/builders": "^0.12.0",
-    "@discordjs/rest": "^0.3.0",
-    "@prisma/client": "4.2.1",
-    "axios": "^0.26.0",
+    "@discordjs/builders": "^1.14.1",
+    "@discordjs/rest": "^2.6.1",
+    "@prisma/adapter-better-sqlite3": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "axios": "^1.18.1",
+    "better-sqlite3": "^12.11.1",
     "colorts": "^0.1.63",
-    "cron-parser": "^4.7.1",
-    "discord-api-types": "^0.27.2",
-    "discord.js": "^14.9.0",
-    "dotenv": "^16.0.0",
-    "node-cron": "^3.0.2",
-    "prisma": "^4.9.0",
-    "typescript": "^4.5.5"
+    "cron-parser": "^5.6.1",
+    "discord-api-types": "^0.38.49",
+    "discord.js": "^14.26.4",
+    "dotenv": "^17.4.2",
+    "node-cron": "^4.6.0",
+    "prisma": "^7.8.0",
+    "typescript": "^7.0.2"
   },
   "devDependencies": {
-    "@types/node": "^18.15.0",
-    "@types/node-cron": "^3.0.7"
+    "@types/node": "^26.1.1",
+    "@types/node-cron": "^3.0.11"
   }
 }

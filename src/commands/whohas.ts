@@ -17,7 +17,7 @@ const whoHas = async (options: CommandExecuteParameters) => {
   const { args, type, message, interaction } = options
   const isSlash = type === 'interaction'
   if (!isSlash && !args?.length) return message?.reply('You need to specify a skill')
-  const skill = findSkill(isSlash ? interaction?.options.get('skill')?.value as string : args?.join(' '))
+  const skill = findSkill(isSlash ? interaction?.options.getString('skill', true) : args?.join(' '))
   if (!skill) return message ? message?.reply('Could not find a skill with that name') : interaction?.reply('Could not find a skill with that name')
   const embed = getClassesWithThisSkill(skill, isSlash ? interaction!.user : message!.author, true)
   return isSlash ? interaction?.reply({ embeds: [embed] }) : message?.reply({ embeds: [embed] })
