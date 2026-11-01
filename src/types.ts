@@ -47,7 +47,7 @@ export interface UntrustedClass {
     name: string
     type: "Special" | "Field Operations" | "Investigative" | "Offensive"
     unique: boolean
-    guarenteed: boolean
+    guaranteed: boolean
     description: string
     faction: Factions
     wincon: string
