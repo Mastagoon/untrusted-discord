@@ -4,4 +4,4 @@ test.js
 dist/
 old/
 prisma/main.db
-a.bash
+generated/prisma

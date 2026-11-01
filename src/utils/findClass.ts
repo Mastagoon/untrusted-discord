@@ -4,13 +4,13 @@ import { UntrustedClass } from "../types"
 
 export default (args?: string | null) => {
     if (!args) return null
-    const cl = classInfo.find(c =>
-        // alias check
-        c.id === aliases.find(al => al.name.split(",").includes(args.toLowerCase()))?.id ||
-        // shorthand
-        c.name?.toLowerCase().split(",").includes(args.toLowerCase()) ||
-        // first char of every character
-        c.name?.split(" ").reduce((res, word) => res += word.slice(0, 1), '').toLowerCase() === args.toLowerCase()
-    )
+    const query = args.toLowerCase()
+    const aliasId = aliases.find(al => al.name.split(",").includes(query))?.id
+    const cl = classInfo.find(c => {
+        return String(c.id) === String(aliasId) ||
+            c.name?.toLowerCase().split(",").includes(query) ||
+            c.name?.split(" ").reduce((res, word) => res += word.slice(0, 1), '').toLowerCase() === query
+    })
+    console.debug("Found " + cl)
     return cl ? cl as unknown as UntrustedClass : null
 }

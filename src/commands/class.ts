@@ -35,7 +35,7 @@ const cooldown = 0;
 const skillDescriptionEmbedField = (sk: string) => {
   const skill = findSkill(sk)
   return {
-    name: skill?.name ?? "Unknown Skill", //This was misspelt, I only noticed cause I was reusing code.
+    name: skill?.name ?? "Unknown Skill", 
     value: skill!.description,
     inline: false,
   }
@@ -58,7 +58,7 @@ const createClassEmbeds = (cl: UntrustedClass, user: User): APIEmbed[] => {
         },
         {
           name: "Guaranteed Spawn",
-          value: cl.guarenteed ? "Yes" : "No",
+          value: cl.guaranteed ? "Yes" : "No",
           inline: true,
         },
         {
@@ -131,7 +131,7 @@ const classCommand = async (options: CommandExecuteParameters) => {
   const { args, type, message, interaction } = options
   const isSlash = type == "interaction"
   if (!isSlash && !args?.length)
-    return message!.reply("You need to specify a skill")
+    return message!.reply("You need to specify a class")
   const user = isSlash ? interaction?.user : message?.author
   if (!user) return
   const query = isSlash

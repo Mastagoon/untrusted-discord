@@ -63,14 +63,21 @@ const schedule = async ({ message, interaction }: CommandExecuteParameters) => {
   // prase the date and time to check if they are correct
   if (!title || !time) return mes.reply("Usage: /schedule <title> <time> [date]")
   if (!date) date = new Date().toISOString().split("T")[0]
-  const dateRegex = /^\d{4}-\d{2}-\d{2}$/
+  const dateRegex = /^\d{4}-\d{2}-\d{1,2}$/
   const timeRegex = /^\d{2}:\d{2}$/
   if (!dateRegex.test(date)) return mes.reply("Invalid date format")
   if (!timeRegex.test(time)) return mes.reply("Invalid time format")
-  if (new Date(`${date} ${time}`).getTime() < Date.now()) return mes.reply("Invalid date or time. Game time is in the past.")
-  // if the date is more then 7 days in the future, return
-  if (new Date(`${date} ${time}`).getTime() - Date.now() > (ONE_WEEK_IN_MINUTES * 60 * 1000)) return mes.reply("Invalid date or time. Game time is more then 7 days in the future.")
+  const [year, month, day] = date.split("-").map(Number)
+  const dateOnly = new Date(year, month - 1, day)
+  if (
+    dateOnly.getFullYear() !== year ||
+    dateOnly.getMonth() !== month - 1 ||
+    dateOnly.getDate() !== day
+  ) return mes.reply("Invalid date")
   const dateString = new Date(`${date} ${time}`)
+  if (dateString.getTime() < Date.now()) return mes.reply("Invalid date or time. Game time is in the past.")
+  // if the date is more then 7 days in the future, return
+  if (dateString.getTime() - Date.now() > (ONE_WEEK_IN_MINUTES * 60 * 1000)) return mes.reply("Invalid date or time. Game time is more then 7 days in the future.")
   const cronString = dateToCron(new Date((`${date} ${time}`).trim()))
   // create the cronjob
   const startMessage = await channel.send(`Game time: <t:${Math.floor(dateString.getTime() / 1000)}:F> || <t:${Math.floor(dateString.getTime() / 1000)}:R>`)
